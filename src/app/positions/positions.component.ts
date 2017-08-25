@@ -12,6 +12,7 @@ import { Position } from './../_models/position';
 
 export class PositionsComponent implements OnInit {
     positions: Position[];
+    selectedPosition: Position;
 
     constructor(
         private route: ActivatedRoute,
@@ -25,6 +26,14 @@ export class PositionsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getPositions();
+    }
+
+    onSelect(position: Position): void {
+        this.selectedPosition = position;
+    }
+
+    gotoDetail(): void {
+        this.router.navigate(['positions/detail', this.selectedPosition.id]);
     }
 
     add(name: string): void {

@@ -12,11 +12,13 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { DepartmentService } from './_services/department.service';
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineService } from './_services/discipline.service';
+import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
 import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionService } from './_services/commission.service';
 import { CommissionDetailComponent } from './commissions/commission-detail.component';
 import { PositionsComponent } from './positions/positions.component';
 import { PositionService } from './_services/position.service';
+import { PositionDetailComponent } from './positions/position-detail.component';
 
 // Imports for simulating a Web API - testing purposes only
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
@@ -29,9 +31,11 @@ import { InMemoryDataService } from './in-memory-data.service';
     TeachersComponent,
     DepartmentsComponent,
     DisciplinesComponent,
+    DisciplineDetailComponent,
     CommissionsComponent,
     CommissionDetailComponent,
-    PositionsComponent
+    PositionsComponent,
+    PositionDetailComponent
   ],
   imports: [
     BrowserModule,

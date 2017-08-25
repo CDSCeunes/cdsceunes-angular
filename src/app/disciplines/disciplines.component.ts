@@ -12,6 +12,7 @@ import { DisciplineService } from './../_services/discipline.service';
 
 export class DisciplinesComponent implements OnInit {
     disciplines: Discipline[];
+    selectedDiscipline: Discipline;
 
     constructor(
         private route: ActivatedRoute,
@@ -25,6 +26,14 @@ export class DisciplinesComponent implements OnInit {
 
     ngOnInit(): void {
         this.getDisciplines();
+    }
+
+    onSelect(discipline: Discipline): void {
+        this.selectedDiscipline = discipline;
+    }
+
+    gotoDetail(): void {
+        this.router.navigate(['disciplines/detail', this.selectedDiscipline.id]);
     }
 
     add(name: string): void {

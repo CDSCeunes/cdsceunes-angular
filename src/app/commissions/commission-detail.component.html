@@ -1,10 +1,10 @@
 <div *ngIf="commission">
     <h2>{{commission.name}}</h2>
     <div>
-      <label>id: </label>{{commission.id}}</div>
+        <label>id: </label>{{commission.id}}</div>
     <div>
-      <label>Nome: </label>
-      <input [(ngModel)]="commission.name" placeholder="name" />
+        <label>Nome: </label>
+        <input [(ngModel)]="commission.name" placeholder="name" />
     </div>
     <div>
         <label>Mínimo de Integrantes: </label>
@@ -18,6 +18,10 @@
         <label>Integrantes: </label>
         <input [(ngModel)]="commission.teachers" placeholder="teachers" />
     </div>
+    <div>
+        <label>Cargos: </label>
+        <input [(ngModel)]="commission.positions" placeholder="positions" />
+    </div>
     <button (click)="goBack()">Voltar</button>
     <button (click)="save()">Salvar</button>
-  </div>
+</div>

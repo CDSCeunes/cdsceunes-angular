@@ -12,6 +12,7 @@ import { DepartmentService } from './../_services/department.service';
 
 export class DepartmentsComponent implements OnInit {
     departments: Department[];
+    selectedDepartment: Department;
 
     constructor(
         private route: ActivatedRoute,
@@ -25,6 +26,10 @@ export class DepartmentsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getDepartments();
+    }
+
+    onSelect(department: Department): void {
+        this.selectedDepartment = department;
     }
 
     add(name: string): void {

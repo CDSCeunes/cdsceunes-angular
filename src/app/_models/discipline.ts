@@ -5,4 +5,5 @@ export class Discipline {
     teoricLoad: number;
     exerciseLoad: number;
     labLoad: number;
+    currentTeacher: string;
 }

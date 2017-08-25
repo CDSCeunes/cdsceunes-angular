@@ -5,9 +5,11 @@ import { LoginComponent } from './login/index';
 import { TeachersComponent } from './teachers/teachers.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { DisciplinesComponent } from './disciplines/disciplines.component';
+import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
 import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionDetailComponent } from './commissions/commission-detail.component';
 import { PositionsComponent } from './positions/positions.component';
+import { PositionDetailComponent } from './positions/position-detail.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -15,9 +17,11 @@ const routes: Routes = [
     { path: 'teachers', component: TeachersComponent},
     { path: 'departments', component: DepartmentsComponent},
     { path: 'disciplines', component: DisciplinesComponent},
+    { path: 'disciplines/detail/:id', component: DisciplineDetailComponent},
     { path: 'commissions', component: CommissionsComponent},
     { path: 'commissions/detail/:id', component: CommissionDetailComponent},
     { path: 'positions', component: PositionsComponent},
+    { path: 'positions/detail/:id', component: PositionDetailComponent},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

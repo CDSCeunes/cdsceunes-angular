@@ -1,5 +1,5 @@
 <h2 class="headertekst">Todas as Cargos Administrativos</h2>
-<div id="inner">
+<div id="inner" style="float: left; width: 50%;">
   <div>
     <label>Nome:</label> <input #positionName />
     <button (click)="add(positionName.value); positionName.value=''">
@@ -14,3 +14,10 @@
     </li>
   </ul>
 </div>
+<div *ngIf="selectedPosition" style="float: left; width: 50%;">
+    <h2>
+      {{selectedPosition.name}}
+    </h2>
+    <span class="badge" style="white-space: pre-line"><b>Responsável:</b> </span><span>{{selectedPosition.inCharge}}</span><br><br>
+    <button (click)="gotoDetail()">Ver Detalhes</button>
+  </div>
