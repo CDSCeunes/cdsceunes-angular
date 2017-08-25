@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: 'departments', component: DepartmentsComponent},
     { path: 'disciplines', component: DisciplinesComponent},
     { path: 'commissions', component: CommissionsComponent},
-    { path: 'commissions/detail:id', component: CommissionDetailComponent},
+    { path: 'commissions/detail/:id', component: CommissionDetailComponent},
     { path: 'positions', component: PositionsComponent},
 
     // otherwise redirect to home

@@ -18,7 +18,6 @@
   <h2>
     {{selectedCommission.name}}
   </h2>
-  <span class="badge" style="white-space: pre-line">Número mínimo de integrantes: </span><span>{{selectedCommission.minNumber}}</span><br>
-  <span class="badge" style="white-space: pre-line">Número máximo de integrantes: </span><span>{{selectedCommission.maxNumber}}</span><br><br>
+  <span class="badge" style="white-space: pre-line"><b>Integrantes:</b> </span><span>{{selectedCommission.teachers}}</span><br><br>
   <button (click)="gotoDetail()">Ver Detalhes</button>
 </div>

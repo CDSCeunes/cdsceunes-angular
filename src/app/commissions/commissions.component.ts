@@ -30,7 +30,7 @@ export class CommissionsComponent implements OnInit {
 
     onSelect(commission: Commission): void {
         this.selectedCommission = commission;
-     }
+    }
 
     gotoDetail(): void {
         this.router.navigate(['commissions/detail', this.selectedCommission.id]);
