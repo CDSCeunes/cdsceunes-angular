@@ -1,5 +1,6 @@
 <h2 class="headertekst">Todos os professores</h2>
 <div id="inner" style="float: left; width: 50%;">
+  <app-teacher-search></app-teacher-search>
   <div>
     <label>Nome:</label> <input #teacherName />
     <button (click)="add(teacherName.value); teacherName.value=''">
