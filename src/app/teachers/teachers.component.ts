@@ -12,6 +12,7 @@ import { TeacherService } from './../_services/teacher.service';
 
 export class TeachersComponent implements OnInit {
     teachers: Teacher[];
+    selectedTeacher: Teacher;
 
     constructor(
         private route: ActivatedRoute,
@@ -25,6 +26,14 @@ export class TeachersComponent implements OnInit {
 
     ngOnInit(): void {
         this.getTeachers();
+    }
+
+    onSelect(teacher: Teacher): void {
+        this.selectedTeacher = teacher;
+    }
+
+    gotoDetail(): void {
+        this.router.navigate(['teachers/detail', this.selectedTeacher.id]);
     }
 
     add(name: string): void {

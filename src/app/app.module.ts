@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app.routing';
 import { LoginComponent } from './login/index';
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeacherService } from './_services/teacher.service';
+import { TeacherDetailComponent } from './teachers/teacher-detail.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { DepartmentService } from './_services/department.service';
 import { DisciplinesComponent } from './disciplines/disciplines.component';
@@ -29,6 +30,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     AppComponent,
     LoginComponent,
     TeachersComponent,
+    TeacherDetailComponent,
     DepartmentsComponent,
     DisciplinesComponent,
     DisciplineDetailComponent,

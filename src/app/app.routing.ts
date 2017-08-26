@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/index';
 import { TeachersComponent } from './teachers/teachers.component';
+import { TeacherDetailComponent } from './teachers/teacher-detail.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent },
     { path: 'teachers', component: TeachersComponent},
+    { path: 'teachers/detail/:id', component: TeacherDetailComponent},
     { path: 'departments', component: DepartmentsComponent},
     { path: 'disciplines', component: DisciplinesComponent},
     { path: 'disciplines/detail/:id', component: DisciplineDetailComponent},
