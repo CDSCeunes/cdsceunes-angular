@@ -1,0 +1,25 @@
+<h2 class="headertekst">Todas as Disciplinas</h2>
+<div id="inner" style="float: left; width: 50%;">
+  <app-discipline-search></app-discipline-search>
+  <div>
+    <label>Nome:</label> <input #disciplineName />
+    <button (click)="add(disciplineName.value); disciplineName.value=''">
+          Adicionar
+        </button>
+  </div>
+  <ul class="disciplines">
+    <li *ngFor="let discipline of disciplines" (click)="onSelect(discipline)" [class.selected]="discipline === selectedDiscipline">
+      <span class="badge">{{discipline.id}}</span>
+      <span>{{discipline.name}}</span>
+      <button class="delete" (click)="delete(discipline); $event.stopPropagation()">x</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="selectedDiscipline" style="float: left; width: 50%;">
+    <h2>
+      {{selectedDiscipline.name}}
+    </h2>
+    <span class="badge" style="white-space: pre-line"><b>Curso:</b> </span><span>{{selectedDiscipline.course}}</span><br><br>
+    <span class="badge" style="white-space: pre-line"><b>Atual Professor:</b> </span><span>{{selectedDiscipline.currentTeacher}}</span><br><br>
+    <button (click)="gotoDetail()">Ver Detalhes</button>
+  </div>

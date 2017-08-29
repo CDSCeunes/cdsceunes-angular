@@ -1,0 +1,19 @@
+<div *ngIf="position">
+    <h2>{{position.name}}</h2>
+    <div>
+        <label>id: </label>{{position.id}}</div>
+    <div>
+        <label>Nome: </label>
+        <input [(ngModel)]="position.name" placeholder="name" />
+    </div>
+    <div>
+        <label>Comissão: </label>
+        <input [(ngModel)]="position.commission" placeholder="commission" />
+    </div>
+    <div>
+        <label>Responsável: </label>
+        <input [(ngModel)]="position.inCharge" placeholder="inCharge" />
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    <button (click)="save()">Salvar</button>
+</div>

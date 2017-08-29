@@ -1,0 +1,19 @@
+<div *ngIf="teacher">
+    <h2>{{teacher.name}}</h2>
+    <div>
+        <label>id: </label>{{teacher.id}}</div>
+    <div>
+        <label>Nome: </label>
+        <input [(ngModel)]="teacher.name" placeholder="name" />
+    </div>
+    <div>
+        <label>Departamento: </label>
+        <input [(ngModel)]="teacher.department" placeholder="department" />
+    </div>
+    <div>
+        <label>Responsável: </label>
+        <input [(ngModel)]="teacher.email" placeholder="email" />
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    <button (click)="save()">Salvar</button>
+</div>
