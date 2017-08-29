@@ -32,6 +32,10 @@ export class DepartmentsComponent implements OnInit {
         this.selectedDepartment = department;
     }
 
+    gotoDetail(): void {
+        this.router.navigate(['departments/detail', this.selectedDepartment.id]);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }

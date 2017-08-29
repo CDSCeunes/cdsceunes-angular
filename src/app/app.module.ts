@@ -15,6 +15,8 @@ import { TeacherSearchComponent } from './teachers/teacher-search.component';
 
 import { DepartmentsComponent } from './departments/departments.component';
 import { DepartmentService } from './_services/department.service';
+import { DepartmentSearchComponent } from './departments/department-search.component';
+import { DepartmentDetailComponent } from './departments/department-detail.component';
 
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineService } from './_services/discipline.service';
@@ -43,6 +45,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     TeacherDetailComponent,
     TeacherSearchComponent,
     DepartmentsComponent,
+    DepartmentDetailComponent,
+    DepartmentSearchComponent,
     DisciplinesComponent,
     DisciplineDetailComponent,
     DisciplineSearchComponent,
