@@ -1,5 +1,6 @@
 <h2 class="headertekst">Todas as Disciplinas</h2>
 <div id="inner" style="float: left; width: 50%;">
+  <app-discipline-search></app-discipline-search>
   <div>
     <label>Nome:</label> <input #disciplineName />
     <button (click)="add(disciplineName.value); disciplineName.value=''">

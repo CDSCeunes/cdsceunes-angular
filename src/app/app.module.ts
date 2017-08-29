@@ -5,22 +5,31 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
+
 import { LoginComponent } from './login/index';
+
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeacherService } from './_services/teacher.service';
 import { TeacherDetailComponent } from './teachers/teacher-detail.component';
 import { TeacherSearchComponent } from './teachers/teacher-search.component';
+
 import { DepartmentsComponent } from './departments/departments.component';
 import { DepartmentService } from './_services/department.service';
+
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineService } from './_services/discipline.service';
 import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
+import { DisciplineSearchComponent } from './disciplines/discipline-search.component';
+
 import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionService } from './_services/commission.service';
 import { CommissionDetailComponent } from './commissions/commission-detail.component';
+import { CommissionSearchComponent } from './commissions/commission-search.component';
+
 import { PositionsComponent } from './positions/positions.component';
 import { PositionService } from './_services/position.service';
 import { PositionDetailComponent } from './positions/position-detail.component';
+import { PositionSearchComponent } from './positions/position-search.component';
 
 // Imports for simulating a Web API - testing purposes only
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
@@ -36,10 +45,13 @@ import { InMemoryDataService } from './in-memory-data.service';
     DepartmentsComponent,
     DisciplinesComponent,
     DisciplineDetailComponent,
+    DisciplineSearchComponent,
     CommissionsComponent,
     CommissionDetailComponent,
+    CommissionSearchComponent,
     PositionsComponent,
-    PositionDetailComponent
+    PositionDetailComponent,
+    PositionSearchComponent
   ],
   imports: [
     BrowserModule,

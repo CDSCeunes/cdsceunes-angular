@@ -1,5 +1,6 @@
 <h2 class="headertekst">Todas as Comissões</h2>
 <div id="inner" style="float: left; width: 50%;">
+  <app-commission-search></app-commission-search>
   <div>
     <label>Nome:</label> <input #commissionName />
     <button (click)="add(commissionName.value); commissionName.value=''">
