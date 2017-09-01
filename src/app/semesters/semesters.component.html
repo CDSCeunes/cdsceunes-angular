@@ -1,0 +1,24 @@
+<h2 class="headertekst">Todos os semestres</h2>
+<div id="inner" style="float: left; width: 50%;">
+  <app-semester-search></app-semester-search>
+  <div>
+    <label>Nome:</label> <input #semesterName />
+    <button (click)="add(semesterName.value); semesterName.value=''">
+          Adicionar
+        </button>
+  </div>
+  <ul class="semesters">
+    <li *ngFor="let semester of semesters" (click)="onSelect(semester)" [class.selected]="semester === selectedSemester">
+      <span class="badge">{{semester.id}}</span>
+      <span>{{semester.name}}</span>
+      <button class="delete" (click)="delete(semester); $event.stopPropagation()">x</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="selectedSemester" style="float: left; width: 50%;">
+  <h2>
+    {{selectedSemester.name}}
+  </h2>
+  <span class="badge" style="white-space: pre-line"><b>Semestre:</b> </span><span>{{selectedSemester.name}}</span><br><br>
+  <button (click)="gotoDetail()">Ver Detalhes</button>
+</div>

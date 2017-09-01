@@ -18,6 +18,9 @@ import { CommissionDetailComponent } from './commissions/commission-detail.compo
 import { PositionsComponent } from './positions/positions.component';
 import { PositionDetailComponent } from './positions/position-detail.component';
 
+import { SemesterDetailComponent } from './semesters/semester-detail.component';
+import { SemestersComponent } from './semesters/semesters.component';
+
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent },
@@ -31,6 +34,8 @@ const routes: Routes = [
     { path: 'commissions/detail/:id', component: CommissionDetailComponent},
     { path: 'positions', component: PositionsComponent},
     { path: 'positions/detail/:id', component: PositionDetailComponent},
+    { path: 'semesters', component: SemestersComponent},
+    { path: 'semesters/detail/:id', component: SemesterDetailComponent},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
