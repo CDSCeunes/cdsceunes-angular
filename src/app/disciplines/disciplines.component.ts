@@ -36,6 +36,10 @@ export class DisciplinesComponent implements OnInit {
         this.router.navigate(['disciplines/detail', this.selectedDiscipline.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['disciplines/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }
@@ -43,6 +47,16 @@ export class DisciplinesComponent implements OnInit {
           .then(discipline => {
             this.disciplines.push(discipline);
           });
+    }
+
+    addComplete(name: string, course: string, teoricLoad: number, labLoad: number, exerciseLoad: number): void {
+        name = name.trim();
+        course = course.trim();
+
+        this.disciplineService.createComplete(name, course, teoricLoad, labLoad, exerciseLoad)
+            .then(discipline => {
+                this.disciplines.push(discipline);
+            });
     }
 
     delete(discipline: Discipline): void {

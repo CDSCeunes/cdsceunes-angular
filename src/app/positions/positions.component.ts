@@ -36,6 +36,10 @@ export class PositionsComponent implements OnInit {
         this.router.navigate(['positions/detail', this.selectedPosition.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['positions/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }
@@ -43,6 +47,17 @@ export class PositionsComponent implements OnInit {
           .then(position => {
             this.positions.push(position);
           });
+    }
+
+    addComplete(name: string, inCharge: string, commission: string): void {
+        name = name.trim();
+        inCharge = inCharge.trim();
+        commission = commission.trim();
+
+        this.positionService.createComplete(name, inCharge, commission)
+            .then(position => {
+                this.positions.push(position);
+            });
     }
 
     delete(position: Position): void {

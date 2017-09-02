@@ -36,6 +36,10 @@ export class DepartmentsComponent implements OnInit {
         this.router.navigate(['departments/detail', this.selectedDepartment.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['departments/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }
@@ -43,6 +47,16 @@ export class DepartmentsComponent implements OnInit {
           .then(department => {
             this.departments.push(department);
           });
+    }
+
+    addComplete(name: string, center: string): void {
+        name = name.trim();
+        center = center.trim();
+
+        this.departmentService.createComplete(name, center)
+            .then(department => {
+                this.departments.push(department);
+            });
     }
 
     delete(department: Department): void {

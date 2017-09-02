@@ -105,6 +105,17 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 10, name: 'Cargo 10', inCharge: 'Wanderley Cardoso Celeste', commission: 'Comissão Aleatória'},
     ];
 
-    return {teachers, departments, disciplines, commissions, positions};
+    const semesters = [
+      {id: 1, name: '2012/1', offeredDisciplines: 'Disciplina 1, Disciplina 2, Disciplina 3'},
+      {id: 2, name: '2012/2', offeredDisciplines: 'Disciplina 4, Disciplina 5, Disciplina 6'},
+      {id: 3, name: '2013/1', offeredDisciplines: 'Disciplina 1, Disciplina 2, Disciplina 3'},
+      {id: 4, name: '2013/2', offeredDisciplines: 'Disciplina 4, Disciplina 5, Disciplina 6'},
+      {id: 5, name: '2014/1', offeredDisciplines: 'Disciplina 1, Disciplina 2, Disciplina 3'},
+      {id: 6, name: '2014/2', offeredDisciplines: 'Disciplina 4, Disciplina 5, Disciplina 6'},
+      {id: 7, name: '2015/1', offeredDisciplines: 'Disciplina 1, Disciplina 2, Disciplina 3'},
+      {id: 8, name: '2015/2', offeredDisciplines: 'Disciplina 4, Disciplina 5, Disciplina 6'},
+    ];
+
+    return {teachers, departments, disciplines, commissions, positions, semesters};
   }
 }

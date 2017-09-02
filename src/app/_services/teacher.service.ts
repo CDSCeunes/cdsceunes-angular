@@ -49,6 +49,16 @@ export class TeacherService {
       .catch(this.handleError);
   }
 
+  createComplete(name: string, department: string, email: string, center: string): Promise<Teacher> {
+    return this.http
+    .post(this.teachersUrl,
+      JSON.stringify({name: name, department: department, email: email, center: center}),
+      {headers: this.headers})
+    .toPromise()
+    .then(res => res.json().data as Teacher)
+    .catch(this.handleError);
+  }
+
   delete(id: number): Promise<void> {
     const url = `${this.teachersUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})

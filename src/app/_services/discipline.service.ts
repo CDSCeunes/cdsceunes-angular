@@ -49,6 +49,16 @@ export class DisciplineService {
       .catch(this.handleError);
   }
 
+  createComplete(name: string, course: string, teoricLoad: number, exerciseLoad: number, labLoad: number): Promise<Discipline> {
+    return this.http
+    .post(this.disciplinesUrl,
+      JSON.stringify({name: name, course: course, teoricLoad: teoricLoad, exerciseLoad: exerciseLoad, labLoad: labLoad}),
+      {headers: this.headers})
+    .toPromise()
+    .then(res => res.json().data as Discipline)
+    .catch(this.handleError);
+  }
+
   delete(id: number): Promise<void> {
     const url = `${this.disciplinesUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})

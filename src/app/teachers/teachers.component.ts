@@ -36,6 +36,10 @@ export class TeachersComponent implements OnInit {
         this.router.navigate(['teachers/detail', this.selectedTeacher.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['teachers/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }
@@ -43,6 +47,18 @@ export class TeachersComponent implements OnInit {
           .then(teacher => {
             this.teachers.push(teacher);
           });
+    }
+
+    addComplete(name: string, department: string, email: string, center: string): void {
+        name = name.trim();
+        department = department.trim();
+        email = email.trim();
+        center = center.trim();
+
+        this.teacherService.createComplete(name, department, email, center)
+            .then(teacher => {
+                this.teachers.push(teacher);
+            });
     }
 
     delete(teacher: Teacher): void {

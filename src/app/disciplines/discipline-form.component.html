@@ -1,0 +1,40 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Cadastro de nova disciplina</h1>
+        <form (ngSubmit)="onSubmit()" #disciplineForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="discipline.name" name="name" #name="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    O campo de nome é necessário!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Curso</label>
+                <input type="text" class="form-control" id="course" required [(ngModel)]="discipline.course" name="course" #course="ngModel">
+                <div [hidden]="course.valid || course.pristine" class="alert alert-danger">
+                    O campo de curso é necessário!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="teoricLoad">Carga teórica</label>
+                <input type="number" class="form-control" id="teoricLoad" [(ngModel)]="discipline.teoricLoad" name="teoricLoad">
+            </div>
+
+            <div class="form-group">
+                <label for="labLoad">Carga de laboratório</label>
+                <input type="number" class="form-control" id="labLoad" [(ngModel)]="discipline.labLoad" name="labLoad">
+            </div>
+
+            <div class="form-group">
+                <label for="exerciseLoad">Carga de exercícios</label>
+                <input type="number" class="form-control" id="exerciseLoad" [(ngModel)]="discipline.exerciseLoad" name="exerciseLoad">
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="!disciplineForm.form.valid">Cadastrar!</button>
+            <button (click)="goBack()">Voltar</button>
+        </form>
+    </div>
+</div>

@@ -7,6 +7,7 @@
           Adicionar
         </button>
   </div>
+  <button (click)="gotoForm()">Cadastro de nova disciplina</button>
   <ul class="disciplines">
     <li *ngFor="let discipline of disciplines" (click)="onSelect(discipline)" [class.selected]="discipline === selectedDiscipline">
       <span class="badge">{{discipline.id}}</span>

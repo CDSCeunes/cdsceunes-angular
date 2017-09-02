@@ -7,6 +7,7 @@
           Adicionar
         </button>
   </div>
+  <button (click)="gotoForm()">Cadastro de novo professor</button>
   <ul class="teachers">
     <li *ngFor="let teacher of teachers" (click)="onSelect(teacher)" [class.selected]="teacher === selectedTeacher">
       <span class="badge">{{teacher.id}}</span>

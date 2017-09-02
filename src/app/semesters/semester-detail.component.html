@@ -1,0 +1,19 @@
+<div *ngIf="semester">
+    <h2>{{semester.name}}</h2>
+    <div>
+        <label>id: </label>{{semester.id}}</div>
+    <div>
+        <label>Nome: </label>
+        <input [(ngModel)]="semester.name" placeholder="name" />
+    </div>
+    <div>
+        <label>Disciplinas Ofertadas: </label>
+        <input [(ngModel)]="semester.offeredDisciplines" placeholder="disciplines" />
+    </div>
+    <div>
+        <label>Distribuição: </label>
+        <input [(ngModel)]="semester.scenario" placeholder="scenario" />
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    <button (click)="save()">Salvar</button>
+</div>
