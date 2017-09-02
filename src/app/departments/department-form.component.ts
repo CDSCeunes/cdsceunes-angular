@@ -25,7 +25,8 @@ export class DepartmentFormComponent {
 
   onSubmit() {
       this.submitted = true;
-      this.departmentService.create(this.department.name).then(() => this.goBack());
+      this.departmentService.createComplete(
+        this.department.name, this.department.center).then(() => this.goBack());
   }
 
   newDepartment() {

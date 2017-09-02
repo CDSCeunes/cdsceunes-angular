@@ -49,6 +49,17 @@ export class PositionsComponent implements OnInit {
           });
     }
 
+    addComplete(name: string, inCharge: string, commission: string): void {
+        name = name.trim();
+        inCharge = inCharge.trim();
+        commission = commission.trim();
+
+        this.positionService.createComplete(name, inCharge, commission)
+            .then(position => {
+                this.positions.push(position);
+            });
+    }
+
     delete(position: Position): void {
         this.positionService.delete(position.id)
         .then(() => {

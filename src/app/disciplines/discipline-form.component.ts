@@ -24,7 +24,9 @@ export class DisciplineFormComponent {
 
   onSubmit() {
       this.submitted = true;
-      this.disciplineService.create(this.discipline.name).then(() => this.goBack());
+      this.disciplineService.createComplete(
+        this.discipline.name, this.discipline.course, this.discipline.teoricLoad, this.discipline.labLoad, this.discipline.exerciseLoad)
+        .then(() => this.goBack());
   }
 
   newDiscipline() {

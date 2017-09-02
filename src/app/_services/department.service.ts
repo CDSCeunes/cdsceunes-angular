@@ -49,6 +49,16 @@ export class DepartmentService {
       .catch(this.handleError);
   }
 
+  createComplete(name: string, center: string): Promise<Department> {
+    return this.http
+    .post(this.departmentsUrl,
+      JSON.stringify({name: name, center: center}),
+      {headers: this.headers})
+    .toPromise()
+    .then(res => res.json().data as Department)
+    .catch(this.handleError);
+  }
+
   delete(id: number): Promise<void> {
     const url = `${this.departmentsUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})

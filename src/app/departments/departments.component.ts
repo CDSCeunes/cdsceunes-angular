@@ -49,6 +49,16 @@ export class DepartmentsComponent implements OnInit {
           });
     }
 
+    addComplete(name: string, center: string): void {
+        name = name.trim();
+        center = center.trim();
+
+        this.departmentService.createComplete(name, center)
+            .then(department => {
+                this.departments.push(department);
+            });
+    }
+
     delete(department: Department): void {
         this.departmentService.delete(department.id)
         .then(() => {

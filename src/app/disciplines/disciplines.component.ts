@@ -49,6 +49,16 @@ export class DisciplinesComponent implements OnInit {
           });
     }
 
+    addComplete(name: string, course: string, teoricLoad: number, labLoad: number, exerciseLoad: number): void {
+        name = name.trim();
+        course = course.trim();
+
+        this.disciplineService.createComplete(name, course, teoricLoad, labLoad, exerciseLoad)
+            .then(discipline => {
+                this.disciplines.push(discipline);
+            });
+    }
+
     delete(discipline: Discipline): void {
         this.disciplineService.delete(discipline.id)
         .then(() => {

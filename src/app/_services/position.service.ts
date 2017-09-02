@@ -49,6 +49,16 @@ export class PositionService {
       .catch(this.handleError);
   }
 
+  createComplete(name: string, inCharge: string, commission: string): Promise<Position> {
+    return this.http
+    .post(this.positionsUrl,
+      JSON.stringify({name: name, inCharge: inCharge, commission: commission}),
+      {headers: this.headers})
+    .toPromise()
+    .then(res => res.json().data as Position)
+    .catch(this.handleError);
+  }
+
   delete(id: number): Promise<void> {
     const url = `${this.positionsUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})

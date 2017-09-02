@@ -25,7 +25,9 @@ export class TeacherFormComponent {
 
   onSubmit() {
       this.submitted = true;
-      this.teacherService.create(this.teacher.name).then(() => this.goBack());
+      this.teacherService.createComplete(
+        this.teacher.name, this.teacher.department, this.teacher.email, this.teacher.center)
+        .then(() => this.goBack());
   }
 
   newTeacher() {

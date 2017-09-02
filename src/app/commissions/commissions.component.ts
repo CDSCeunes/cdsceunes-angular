@@ -49,6 +49,15 @@ export class CommissionsComponent implements OnInit {
           });
     }
 
+    addComplete(name: string, minNumber: number, maxNumber: number): void {
+        name = name.trim();
+        if (!name) { return; }
+        this.commissionService.createComplete(name, minNumber, maxNumber)
+          .then(commission => {
+            this.commissions.push(commission);
+          });
+    }
+
     delete(commission: Commission): void {
         this.commissionService.delete(commission.id)
         .then(() => {

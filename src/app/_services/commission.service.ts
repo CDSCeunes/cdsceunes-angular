@@ -49,6 +49,16 @@ export class CommissionService {
       .catch(this.handleError);
   }
 
+  createComplete(name: string, minNumber: number, maxNumber: number): Promise<Commission> {
+    return this.http
+    .post(this.commissionsUrl,
+      JSON.stringify({name: name, minNumber: minNumber, maxNumber: maxNumber}),
+      {headers: this.headers})
+    .toPromise()
+    .then(res => res.json().data as Commission)
+    .catch(this.handleError);
+  }
+
   delete(id: number): Promise<void> {
     const url = `${this.commissionsUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})

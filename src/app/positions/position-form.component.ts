@@ -25,7 +25,8 @@ export class PositionFormComponent {
 
   onSubmit() {
       this.submitted = true;
-      this.positionService.create(this.position.name).then(() => this.goBack());
+      this.positionService.createComplete(
+        this.position.name, this.position.inCharge, this.position.commission).then(() => this.goBack());
   }
 
   newposition() {

@@ -25,7 +25,8 @@ export class CommissionFormComponent {
 
   onSubmit() {
       this.submitted = true;
-      this.commissionService.create(this.commission.name).then(() => this.goBack());
+      this.commissionService.createComplete(
+        this.commission.name, this.commission.minNumber, this.commission.maxNumber).then(() => this.goBack());
   }
 
   newCommission() {
