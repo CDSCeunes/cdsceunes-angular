@@ -36,6 +36,10 @@ export class DisciplinesComponent implements OnInit {
         this.router.navigate(['disciplines/detail', this.selectedDiscipline.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['disciplines/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }

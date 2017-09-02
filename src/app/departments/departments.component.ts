@@ -36,6 +36,10 @@ export class DepartmentsComponent implements OnInit {
         this.router.navigate(['departments/detail', this.selectedDepartment.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['departments/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }

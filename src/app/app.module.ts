@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -13,16 +12,19 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { TeacherService } from './_services/teacher.service';
 import { TeacherDetailComponent } from './teachers/teacher-detail.component';
 import { TeacherSearchComponent } from './teachers/teacher-search.component';
+import { TeacherFormComponent } from './teachers/teacher-form.component';
 
 import { DepartmentsComponent } from './departments/departments.component';
 import { DepartmentService } from './_services/department.service';
 import { DepartmentSearchComponent } from './departments/department-search.component';
 import { DepartmentDetailComponent } from './departments/department-detail.component';
+import { DepartmentFormComponent } from './departments/department-form.component';
 
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineService } from './_services/discipline.service';
 import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
 import { DisciplineSearchComponent } from './disciplines/discipline-search.component';
+import { DisciplineFormComponent } from './disciplines/discipline-form.component';
 
 import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionService } from './_services/commission.service';
@@ -53,12 +55,15 @@ import { InMemoryDataService } from './in-memory-data.service';
     TeachersComponent,
     TeacherDetailComponent,
     TeacherSearchComponent,
+    TeacherFormComponent,
     DepartmentsComponent,
     DepartmentDetailComponent,
     DepartmentSearchComponent,
+    DepartmentFormComponent,
     DisciplinesComponent,
     DisciplineDetailComponent,
     DisciplineSearchComponent,
+    DisciplineFormComponent,
     CommissionsComponent,
     CommissionDetailComponent,
     CommissionSearchComponent,

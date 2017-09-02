@@ -36,6 +36,10 @@ export class TeachersComponent implements OnInit {
         this.router.navigate(['teachers/detail', this.selectedTeacher.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['teachers/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }
