@@ -7,6 +7,7 @@
           Adicionar
         </button>
   </div>
+  <button (click)="gotoForm()">Cadastro de novo cargo</button>
   <ul class="positions">
     <li *ngFor="let position of positions" (click)="onSelect(position)" [class.selected]="position === selectedPosition">
       <span class="badge">{{position.id}}</span>

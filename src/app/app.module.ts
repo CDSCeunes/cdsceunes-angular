@@ -1,4 +1,4 @@
-import { SemesterSearchComponent } from './semesters/semester-search.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -28,16 +28,19 @@ import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionService } from './_services/commission.service';
 import { CommissionDetailComponent } from './commissions/commission-detail.component';
 import { CommissionSearchComponent } from './commissions/commission-search.component';
+import { CommissionFormComponent } from './commissions/commission-form.component';
 
 import { PositionsComponent } from './positions/positions.component';
 import { PositionService } from './_services/position.service';
 import { PositionDetailComponent } from './positions/position-detail.component';
 import { PositionSearchComponent } from './positions/position-search.component';
+import { PositionFormComponent } from './positions/position-form.component';
 
 import { SemestersComponent } from './semesters/semesters.component';
 import { SemesterService } from './_services/semester.service';
 import { SemesterDetailComponent } from './semesters/semester-detail.component';
-import { SemesterSearchService } from './_services/semester-search.service';
+import { SemesterSearchComponent } from './semesters/semester-search.component';
+import { SemesterFormComponent } from './semesters/semester-form.component';
 
 // Imports for simulating a Web API - testing purposes only
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
@@ -59,12 +62,15 @@ import { InMemoryDataService } from './in-memory-data.service';
     CommissionsComponent,
     CommissionDetailComponent,
     CommissionSearchComponent,
+    CommissionFormComponent,
     PositionsComponent,
     PositionDetailComponent,
     PositionSearchComponent,
+    PositionFormComponent,
     SemestersComponent,
     SemesterDetailComponent,
-    SemesterSearchComponent
+    SemesterSearchComponent,
+    SemesterFormComponent
   ],
   imports: [
     BrowserModule,

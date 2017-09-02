@@ -36,6 +36,10 @@ export class CommissionsComponent implements OnInit {
         this.router.navigate(['commissions/detail', this.selectedCommission.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['commissions/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }

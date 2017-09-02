@@ -36,6 +36,10 @@ export class SemestersComponent implements OnInit {
         this.router.navigate(['semesters/detail', this.selectedSemester.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['semesters/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }

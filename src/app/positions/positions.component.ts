@@ -36,6 +36,10 @@ export class PositionsComponent implements OnInit {
         this.router.navigate(['positions/detail', this.selectedPosition.id]);
     }
 
+    gotoForm(): void {
+        this.router.navigate(['positions/new']);
+    }
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }

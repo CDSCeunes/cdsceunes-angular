@@ -1,0 +1,28 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Nova Comissão</h1>
+        <form (ngSubmit)="onSubmit()" #commissionForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="commission.name" name="name" #name="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    O campo de nome é necessário!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="alterEgo">Número mínimo de integrantes</label>
+                <input type="text" class="form-control" id="minNumber" [(ngModel)]="commission.minNumber" name="minNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="alterEgo">Número máximo de integrantes</label>
+                <input type="text" class="form-control" id="axNumber" [(ngModel)]="commission.maxNumber" name="maxNumber">
+            </div>
+
+
+            <button type="submit" class="btn btn-success" [disabled]="!commissionForm.form.valid">Cadastrar</button>
+            <button (click)="goBack()">Voltar</button>
+        </form>
+    </div>
+</div>

@@ -7,6 +7,7 @@
           Adicionar
         </button>
   </div>
+  <button (click)="gotoForm()">Cadastro de nova comissão</button>
   <ul class="commissions">
     <li *ngFor="let commission of commissions" (click)="onSelect(commission)" [class.selected]="commission === selectedCommission">
       <span class="badge">{{commission.id}}</span>

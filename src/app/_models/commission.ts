@@ -1,8 +1,12 @@
 export class Commission {
-    id: number;
-    name: string;
+    public id: number;
+    public name: string;
     minNumber: number;
     maxNumber: number;
     teachers: string;
     positions: string;
+
+    constructor (
+
+    ) {}
 }
