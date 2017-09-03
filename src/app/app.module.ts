@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -45,8 +46,8 @@ import { SemestersSearchComponent } from './semesters/semesters-search/semesters
 import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
 // Imports for simulating a Web API - testing purposes only
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
 import { InMemoryDataService } from './in-memory-data.service';
+import { DisciplinesModule } from './disciplines/disciplines.module';
 
 @NgModule({
   declarations: [
@@ -60,10 +61,10 @@ import { InMemoryDataService } from './in-memory-data.service';
     DepartmentsDetailComponent,
     DepartmentsSearchComponent,
     DepartmentsFormComponent,
-    DisciplinesComponent,
-    DisciplinesDetailComponent,
+/*     DisciplinesComponent, */
+/*     DisciplinesDetailComponent,
     DisciplinesSearchComponent,
-    DisciplinesFormComponent,
+    DisciplinesFormComponent, */
     CommissionsComponent,
     CommissionsDetailComponent,
     CommissionsSearchComponent,
@@ -82,7 +83,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    DisciplinesModule
   ],
   providers: [
     AppComponent,
