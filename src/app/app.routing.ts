@@ -33,6 +33,8 @@ import { SemestersHomeComponent } from './semesters/semesters-home/semesters-hom
 import { SemestersDetailComponent } from './semesters/semesters-detail/semesters-detail.component';
 import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
+import { FullLayoutComponent } from './layouts/full-layout.component';
+
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },

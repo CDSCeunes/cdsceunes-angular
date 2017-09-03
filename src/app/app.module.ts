@@ -1,3 +1,4 @@
+
 import { CommissionsModule } from './commissions/commissions.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,10 +26,26 @@ import { SemestersModule } from './semesters/semesters.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { DepartmentsModule } from './departments/departments.module';
 
+// Layout imports
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { BreadcrumbsComponent } from './shared/breadcrumb.component';
+import { AsideToggleDirective } from './shared/aside.directive';
+import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
+import { FullLayoutComponent } from './layouts/full-layout.component';
+import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    FullLayoutComponent,
+    NAV_DROPDOWN_DIRECTIVES,
+    BreadcrumbsComponent,
+    SIDEBAR_TOGGLE_DIRECTIVES,
+    AsideToggleDirective
   ],
   imports: [
     BrowserModule,
@@ -41,7 +58,10 @@ import { DepartmentsModule } from './departments/departments.module';
     SemestersModule,
     TeachersModule,
     DepartmentsModule,
-    CommissionsModule
+    CommissionsModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    ChartsModule
   ],
   providers: [
     AppComponent,
@@ -50,7 +70,11 @@ import { DepartmentsModule } from './departments/departments.module';
     DisciplineService,
     CommissionService,
     PositionService,
-    SemesterService
+    SemesterService,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ],
   bootstrap: [AppComponent]
 })
