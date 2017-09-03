@@ -31,29 +31,35 @@ const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent },
 
-    { path: 'teachers', component: TeachersComponent},
-    { path: 'teachers/detail/:id', component: TeachersDetailComponent},
-    { path: 'teachers/new', component: TeachersFormComponent},
+    { path: 'teachers', component: TeachersComponent, children: [
+        { path: 'detail/:id', component: TeachersDetailComponent},
+        { path: 'new', component: TeachersFormComponent}
+    ]},
 
-    { path: 'departments', component: DepartmentsComponent},
-    { path: 'departments/detail/:id', component : DepartmentsDetailComponent},
-    { path: 'departments/new', component: DepartmentsFormComponent},
+    { path: 'departments', component: DepartmentsComponent, children: [
+        { path: 'detail/:id', component : DepartmentsDetailComponent},
+        { path: 'new', component: DepartmentsFormComponent},
+    ]},
 
-    { path: 'disciplines', component: DisciplinesComponent},
-    { path: 'disciplines/detail/:id', component: DisciplinesDetailComponent},
-    { path: 'disciplines/new', component: DisciplinesFormComponent},
+    { path: 'disciplines', component: DisciplinesComponent, children: [
+        { path: 'detail/:id', component: DisciplinesDetailComponent},
+        { path: 'new', component: DisciplinesFormComponent},
+    ]},
 
-    { path: 'commissions', component: CommissionsComponent},
-    { path: 'commissions/detail/:id', component: CommissionsDetailComponent},
-    { path: 'commissions/new', component: CommissionsFormComponent},
+    { path: 'commissions', component: CommissionsComponent, children: [
+        { path: 'detail/:id', component: CommissionsDetailComponent},
+        { path: 'new', component: CommissionsFormComponent},
+    ]},
 
-    { path: 'positions', component: PositionsComponent},
-    { path: 'positions/detail/:id', component: PositionsDetailComponent},
-    { path: 'positions/new', component: PositionsFormComponent},
+    { path: 'positions', component: PositionsComponent, children: [
+        { path: 'detail/:id', component: PositionsDetailComponent},
+        { path: 'new', component: PositionsFormComponent},
+    ]},
 
-    { path: 'semesters', component: SemestersComponent},
-    { path: 'semesters/detail/:id', component: SemestersDetailComponent},
-    { path: 'semesters/new', component: SemestersFormComponent},
+    { path: 'semesters', component: SemestersComponent, children: [
+        { path: 'detail/:id', component: SemestersDetailComponent},
+        { path: 'new', component: SemestersFormComponent},
+    ]},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
