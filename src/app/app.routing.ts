@@ -33,8 +33,21 @@ import { SemestersHomeComponent } from './semesters/semesters-home/semesters-hom
 import { SemestersDetailComponent } from './semesters/semesters-detail/semesters-detail.component';
 import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
+import { FullLayoutComponent } from './layouts/full-layout.component';
+
 const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: '/login', pathMatch: 'full'},
+    { path: '', component: FullLayoutComponent,
+        data: {
+          title: 'Home'
+        },
+        children: [
+          {
+            path: 'dashboard',
+            loadChildren: './dashboard/dashboard.module#DashboardModule'
+          },
+        ]
+    },
     { path: 'login', component: LoginComponent },
 
     { path: 'teachers', component: TeachersComponent, children: [
