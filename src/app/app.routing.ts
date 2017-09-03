@@ -33,21 +33,43 @@ import { SemestersHomeComponent } from './semesters/semesters-home/semesters-hom
 import { SemestersDetailComponent } from './semesters/semesters-detail/semesters-detail.component';
 import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
-import { FullLayoutComponent } from './layouts/full-layout.component';
+// Import Containers
+import {
+    FullLayout
+} from './containers';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
-    { path: '', component: FullLayoutComponent,
+    {
+        path: '',
+        component: FullLayout,
         data: {
           title: 'Home'
         },
         children: [
           {
             path: 'dashboard',
-            loadChildren: './dashboard/dashboard.module#DashboardModule'
+            loadChildren: './views/dashboard/dashboard.module#DashboardModule'
           },
+          {
+            path: 'components',
+            loadChildren: './views/components/components.module#ComponentsModule'
+          },
+          {
+            path: 'icons',
+            loadChildren: './views/icons/icons.module#IconsModule'
+          },
+          {
+            path: 'widgets',
+            loadChildren: './views/widgets/widgets.module#WidgetsModule'
+          },
+          {
+            path: 'charts',
+            loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
+          }
         ]
     },
+
     { path: 'login', component: LoginComponent },
 
     { path: 'teachers', component: TeachersComponent, children: [

@@ -1,6 +1,7 @@
 
 import { CommissionsModule } from './commissions/commissions.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -26,26 +27,61 @@ import { SemestersModule } from './semesters/semesters.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { DepartmentsModule } from './departments/departments.module';
 
-// Layout imports
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { BreadcrumbsComponent } from './shared/breadcrumb.component';
-import { AsideToggleDirective } from './shared/aside.directive';
-import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
-import { FullLayoutComponent } from './layouts/full-layout.component';
-import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+// LAYOUT IMPORTS - LOTS OF STUFF
+
+// Import containers
+import {
+  FullLayout,
+  SimpleLayout
+} from './containers';
+
+const APP_CONTAINERS = [
+  FullLayout,
+  SimpleLayout
+]
+
+// Import components
+import {
+  AppAside,
+  AppBreadcrumbs,
+  AppFooter,
+  AppHeader,
+  AppSidebar
+} from './components';
+
+const APP_COMPONENTS = [
+  AppAside,
+  AppBreadcrumbs,
+  AppFooter,
+  AppHeader,
+  AppSidebar
+]
+
+// Import directives
+import {
+  AsideToggleDirective,
+  NAV_DROPDOWN_DIRECTIVES,
+  SIDEBAR_TOGGLE_DIRECTIVES
+} from './directives';
+
+const APP_DIRECTIVES = [
+  AsideToggleDirective,
+  NAV_DROPDOWN_DIRECTIVES,
+  SIDEBAR_TOGGLE_DIRECTIVES
+]
+
+// Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FullLayoutComponent,
-    NAV_DROPDOWN_DIRECTIVES,
-    BreadcrumbsComponent,
-    SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective
+    ...APP_CONTAINERS,
+    ...APP_COMPONENTS,
+    ...APP_DIRECTIVES
   ],
   imports: [
     BrowserModule,
