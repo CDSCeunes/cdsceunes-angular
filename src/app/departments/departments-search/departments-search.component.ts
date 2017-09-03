@@ -13,18 +13,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { Department } from './../_models/department';
-import { DepartmentSearchService } from './../_services/department-search.service';
+import { Department } from '../../_models/department';
+import { DepartmentSearchService } from '../../_services/department-search.service';
 
 
 @Component({
     selector: 'app-department-search',
-    templateUrl: './department-search.component.html',
-    styleUrls: ['./department-search.component.css'],
+    templateUrl: './departments-search.component.html',
+    styleUrls: ['./departments-search.component.css'],
     providers: [DepartmentSearchService]
 })
 
-export class DepartmentSearchComponent implements OnInit {
+export class DepartmentsSearchComponent implements OnInit {
     departments: Observable<Department[]>;
     private searchTerms = new Subject<string>();
 

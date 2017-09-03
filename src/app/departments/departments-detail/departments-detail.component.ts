@@ -3,16 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Department } from './../_models/department';
-import { DepartmentService } from './../_services/department.service';
+import { Department } from '../../_models/department';
+import { DepartmentService } from '../../_services/department.service';
 
 @Component({
     selector: 'app-department-detail',
-    templateUrl: './department-detail.component.html',
-    styleUrls: ['./department-detail.component.css']
+    templateUrl: './departments-detail.component.html',
+    styleUrls: ['./departments-detail.component.css']
 })
 
-export class DepartmentDetailComponent implements OnInit {
+export class DepartmentsDetailComponent implements OnInit {
     department: Department;
 
     constructor(

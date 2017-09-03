@@ -3,16 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { CommissionService } from './../_services/commission.service';
-import { Commission } from './../_models/commission';
+import { CommissionService } from '../../_services/commission.service';
+import { Commission } from '../../_models/commission';
 
 @Component({
   selector: 'app-commission-detail',
-  templateUrl: './commission-detail.component.html',
-  styleUrls: [ './commission-detail.component.css' ]
+  templateUrl: './commissions-detail.component.html',
+  styleUrls: [ './commissions-detail.component.css' ]
 })
-
-export class CommissionDetailComponent implements OnInit {
+export class CommissionsDetailComponent implements OnInit {
   commission: Commission;
 
   constructor(

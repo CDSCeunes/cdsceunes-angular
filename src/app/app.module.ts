@@ -10,15 +10,15 @@ import { LoginComponent } from './login/index';
 
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeacherService } from './_services/teacher.service';
-import { TeacherDetailComponent } from './teachers/teacher-detail.component';
-import { TeacherSearchComponent } from './teachers/teacher-search.component';
-import { TeacherFormComponent } from './teachers/teacher-form.component';
+import { TeachersDetailComponent } from './teachers/teachers-detail/teachers-detail.component';
+import { TeachersSearchComponent } from './teachers/teachers-search/teachers-search.component';
+import { TeachersFormComponent } from './teachers/teachers-form/teachers-form.component';
 
 import { DepartmentsComponent } from './departments/departments.component';
 import { DepartmentService } from './_services/department.service';
-import { DepartmentSearchComponent } from './departments/department-search.component';
-import { DepartmentDetailComponent } from './departments/department-detail.component';
-import { DepartmentFormComponent } from './departments/department-form.component';
+import { DepartmentsSearchComponent } from './departments/departments-search/departments-search.component';
+import { DepartmentsDetailComponent } from './departments/departments-detail/departments-detail.component';
+import { DepartmentsFormComponent } from './departments/departments-form/departments-form.component';
 
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineService } from './_services/discipline.service';
@@ -28,9 +28,9 @@ import { DisciplineFormComponent } from './disciplines/discipline-form.component
 
 import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionService } from './_services/commission.service';
-import { CommissionDetailComponent } from './commissions/commission-detail.component';
-import { CommissionSearchComponent } from './commissions/commission-search.component';
-import { CommissionFormComponent } from './commissions/commission-form.component';
+import { CommissionsDetailComponent } from './commissions/commissions-detail/commissions-detail.component';
+import { CommissionsSearchComponent } from './commissions/commissions-search/commissions-search.component';
+import { CommissionsFormComponent } from './commissions/commissions-form/commissions-form.component';
 
 import { PositionsComponent } from './positions/positions.component';
 import { PositionService } from './_services/position.service';
@@ -53,21 +53,21 @@ import { InMemoryDataService } from './in-memory-data.service';
     AppComponent,
     LoginComponent,
     TeachersComponent,
-    TeacherDetailComponent,
-    TeacherSearchComponent,
-    TeacherFormComponent,
+    TeachersDetailComponent,
+    TeachersSearchComponent,
+    TeachersFormComponent,
     DepartmentsComponent,
-    DepartmentDetailComponent,
-    DepartmentSearchComponent,
-    DepartmentFormComponent,
+    DepartmentsDetailComponent,
+    DepartmentsSearchComponent,
+    DepartmentsFormComponent,
     DisciplinesComponent,
     DisciplineDetailComponent,
     DisciplineSearchComponent,
     DisciplineFormComponent,
     CommissionsComponent,
-    CommissionDetailComponent,
-    CommissionSearchComponent,
-    CommissionFormComponent,
+    CommissionsDetailComponent,
+    CommissionsSearchComponent,
+    CommissionsFormComponent,
     PositionsComponent,
     PositionDetailComponent,
     PositionSearchComponent,

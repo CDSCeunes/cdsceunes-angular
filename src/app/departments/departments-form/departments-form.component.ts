@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { DepartmentService } from './../_services/department.service';
-import { Department } from './../_models/department';
+import { DepartmentService } from '../../_services/department.service';
+import { Department } from '../../_models/department';
 
 
 @Component({
   selector: 'app-department-form',
-  templateUrl: './department-form.component.html',
-  styleUrls: [ './department-form.component.css' ]
+  templateUrl: './departments-form.component.html',
+  styleUrls: [ './departments-form.component.css' ]
 })
 
-export class DepartmentFormComponent {
+export class DepartmentsFormComponent {
   department = new Department();
 
   constructor (

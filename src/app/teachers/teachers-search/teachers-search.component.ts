@@ -13,18 +13,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { Teacher } from './../_models/teacher';
-import { TeacherSearchService } from './../_services/teacher-search.service';
+import { Teacher } from '../../_models/teacher';
+import { TeacherSearchService } from '../../_services/teacher-search.service';
 
 
 @Component({
   selector: 'app-teacher-search',
-  templateUrl: './teacher-search.component.html',
-  styleUrls: [ './teacher-search.component.css' ],
+  templateUrl: './teachers-search.component.html',
+  styleUrls: [ './teachers-search.component.css' ],
   providers: [TeacherSearchService]
 })
 
-export class TeacherSearchComponent implements OnInit {
+export class TeachersSearchComponent implements OnInit {
   teachers: Observable<Teacher[]>;
   private searchTerms = new Subject<string>();
 

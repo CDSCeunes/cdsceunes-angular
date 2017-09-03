@@ -13,18 +13,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { Commission } from './../_models/commission';
-import { CommissionSearchService } from './../_services/commission-search.service';
+import { Commission } from '../../_models/commission';
+import { CommissionSearchService } from '../../_services/commission-search.service';
 
 
 @Component({
   selector: 'app-commission-search',
-  templateUrl: './commission-search.component.html',
-  styleUrls: [ './commission-search.component.css' ],
+  templateUrl: './commissions-search.component.html',
+  styleUrls: [ './commissions-search.component.css' ],
   providers: [CommissionSearchService]
 })
 
-export class CommissionSearchComponent implements OnInit {
+export class CommissionsSearchComponent implements OnInit {
   commissions: Observable<Commission[]>;
   private searchTerms = new Subject<string>();
 

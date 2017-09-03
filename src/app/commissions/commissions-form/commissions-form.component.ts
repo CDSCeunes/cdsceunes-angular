@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { CommissionService } from './../_services/commission.service';
-import { Commission } from './../_models/commission';
+import { CommissionService } from '../../_services/commission.service';
+import { Commission } from '../../_models/commission';
 
 
 @Component({
   selector: 'app-commission-form',
-  templateUrl: './commission-form.component.html',
-  styleUrls: [ './commission-form.component.css' ]
+  templateUrl: './commissions-form.component.html',
+  styleUrls: [ './commissions-form.component.css' ]
 })
 
-export class CommissionFormComponent {
+export class CommissionsFormComponent {
   commission = new Commission();
 
   constructor (

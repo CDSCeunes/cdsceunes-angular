@@ -4,20 +4,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/index';
 
 import { TeachersComponent } from './teachers/teachers.component';
-import { TeacherDetailComponent } from './teachers/teacher-detail.component';
-import { TeacherFormComponent } from './teachers/teacher-form.component';
+import { TeachersDetailComponent } from './teachers/teachers-detail/teachers-detail.component';
+import { TeachersFormComponent } from './teachers/teachers-form/teachers-form.component';
 
 import { DepartmentsComponent } from './departments/departments.component';
-import { DepartmentDetailComponent } from './departments/department-detail.component';
-import { DepartmentFormComponent } from './departments/department-form.component';
+import { DepartmentsDetailComponent } from './departments/departments-detail/departments-detail.component';
+import { DepartmentsFormComponent } from './departments/departments-form/departments-form.component';
 
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
 import { DisciplineFormComponent } from './disciplines/discipline-form.component';
 
 import { CommissionsComponent } from './commissions/commissions.component';
-import { CommissionDetailComponent } from './commissions/commission-detail.component';
-import { CommissionFormComponent } from './commissions/commission-form.component';
+import { CommissionsDetailComponent } from './commissions/commissions-detail/commissions-detail.component';
+import { CommissionsFormComponent } from './commissions/commissions-form/commissions-form.component';
 
 import { PositionsComponent } from './positions/positions.component';
 import { PositionDetailComponent } from './positions/position-detail.component';
@@ -32,20 +32,20 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
 
     { path: 'teachers', component: TeachersComponent},
-    { path: 'teachers/detail/:id', component: TeacherDetailComponent},
-    { path: 'teachers/new', component: TeacherFormComponent},
+    { path: 'teachers/detail/:id', component: TeachersDetailComponent},
+    { path: 'teachers/new', component: TeachersFormComponent},
 
     { path: 'departments', component: DepartmentsComponent},
-    { path: 'departments/detail/:id', component : DepartmentDetailComponent},
-    { path: 'departments/new', component: DepartmentFormComponent},
+    { path: 'departments/detail/:id', component : DepartmentsDetailComponent},
+    { path: 'departments/new', component: DepartmentsFormComponent},
 
     { path: 'disciplines', component: DisciplinesComponent},
     { path: 'disciplines/detail/:id', component: DisciplineDetailComponent},
     { path: 'disciplines/new', component: DisciplineFormComponent},
 
     { path: 'commissions', component: CommissionsComponent},
-    { path: 'commissions/detail/:id', component: CommissionDetailComponent},
-    { path: 'commissions/new', component: CommissionFormComponent},
+    { path: 'commissions/detail/:id', component: CommissionsDetailComponent},
+    { path: 'commissions/new', component: CommissionsFormComponent},
 
     { path: 'positions', component: PositionsComponent},
     { path: 'positions/detail/:id', component: PositionDetailComponent},

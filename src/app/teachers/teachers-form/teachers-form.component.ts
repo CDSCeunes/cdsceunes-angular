@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { TeacherService } from './../_services/teacher.service';
-import { Teacher } from './../_models/teacher';
+import { TeacherService } from '../../_services/teacher.service';
+import { Teacher } from '../../_models/teacher';
 
 
 @Component({
   selector: 'app-teacher-form',
-  templateUrl: './teacher-form.component.html',
-  styleUrls: [ './teacher-form.component.css' ]
+  templateUrl: './teachers-form.component.html',
+  styleUrls: [ './teachers-form.component.css' ]
 })
 
-export class TeacherFormComponent {
+export class TeachersFormComponent {
   teacher = new Teacher();
 
   constructor (

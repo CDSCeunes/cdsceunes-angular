@@ -3,16 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { TeacherService } from './../_services/teacher.service';
-import { Teacher } from './../_models/teacher';
+import { TeacherService } from '../../_services/teacher.service';
+import { Teacher } from '../../_models/teacher';
 
 @Component({
   selector: 'app-teacher-detail',
-  templateUrl: './teacher-detail.component.html',
-  styleUrls: [ './teacher-detail.component.css' ]
+  templateUrl: './teachers-detail.component.html',
+  styleUrls: [ './teachers-detail.component.css' ]
 })
 
-export class TeacherDetailComponent implements OnInit {
+export class TeachersDetailComponent implements OnInit {
   teacher: Teacher;
 
   constructor(
