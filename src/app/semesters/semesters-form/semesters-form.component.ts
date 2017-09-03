@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { SemesterService } from './../_services/semester.service';
-import { Semester } from './../_models/semester';
+import { SemesterService } from '../../_services/semester.service';
+import { Semester } from '../../_models/semester';
 
 
 @Component({
   selector: 'app-semester-form',
-  templateUrl: './semester-form.component.html',
-  styleUrls: [ './semester-form.component.css' ]
+  templateUrl: './semesters-form.component.html',
+  styleUrls: [ './semesters-form.component.css' ]
 })
 
-export class SemesterFormComponent {
+export class SemestersFormComponent {
   semester = new Semester();
 
   constructor (

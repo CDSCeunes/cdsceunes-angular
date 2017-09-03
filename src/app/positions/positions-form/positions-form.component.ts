@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { PositionService } from './../_services/position.service';
-import { Position } from './../_models/position';
+import { PositionService } from '../../_services/position.service';
+import { Position } from '../../_models/position';
 
 
 @Component({
   selector: 'app-position-form',
-  templateUrl: './position-form.component.html',
-  styleUrls: [ './position-form.component.css' ]
+  templateUrl: './positions-form.component.html',
+  styleUrls: [ './positions-form.component.css' ]
 })
 
-export class PositionFormComponent {
+export class PositionsFormComponent {
   position = new Position();
 
   constructor (

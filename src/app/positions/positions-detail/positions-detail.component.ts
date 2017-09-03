@@ -3,16 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Position } from './../_models/position';
-import { PositionService } from './../_services/position.service';
+import { Position } from '../../_models/position';
+import { PositionService } from '../../_services/position.service';
 
 @Component({
   selector: 'app-position-detail',
-  templateUrl: './position-detail.component.html',
-  styleUrls: [ './position-detail.component.css' ]
+  templateUrl: './positions-detail.component.html',
+  styleUrls: [ './positions-detail.component.css' ]
 })
 
-export class PositionDetailComponent implements OnInit {
+export class PositionsDetailComponent implements OnInit {
   position: Position;
 
   constructor(

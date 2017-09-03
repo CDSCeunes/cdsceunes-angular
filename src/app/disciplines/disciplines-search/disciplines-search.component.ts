@@ -13,18 +13,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { Discipline } from './../_models/discipline';
-import { DisciplineSearchService } from './../_services/discipline-search.service';
+import { Discipline } from '../../_models/discipline';
+import { DisciplineSearchService } from '../../_services/discipline-search.service';
 
 
 @Component({
   selector: 'app-discipline-search',
-  templateUrl: './discipline-search.component.html',
-  styleUrls: [ './discipline-search.component.css' ],
+  templateUrl: './disciplines-search.component.html',
+  styleUrls: [ './disciplines-search.component.css' ],
   providers: [DisciplineSearchService]
 })
 
-export class DisciplineSearchComponent implements OnInit {
+export class DisciplinesSearchComponent implements OnInit {
   disciplines: Observable<Discipline[]>;
   private searchTerms = new Subject<string>();
 
@@ -54,7 +54,7 @@ export class DisciplineSearchComponent implements OnInit {
   }
 
   gotoDetail(discipline: Discipline): void {
-    let link = ['disciplines/detail', discipline.id];
+    const link = ['disciplines/detail', discipline.id];
     this.router.navigate(link);
   }
 }

@@ -22,9 +22,9 @@ import { DepartmentsFormComponent } from './departments/departments-form/departm
 
 import { DisciplinesComponent } from './disciplines/disciplines.component';
 import { DisciplineService } from './_services/discipline.service';
-import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
-import { DisciplineSearchComponent } from './disciplines/discipline-search.component';
-import { DisciplineFormComponent } from './disciplines/discipline-form.component';
+import { DisciplinesDetailComponent } from './disciplines/disciplines-detail/disciplines-detail.component';
+import { DisciplinesSearchComponent } from './disciplines/disciplines-search/disciplines-search.component';
+import { DisciplinesFormComponent } from './disciplines/disciplines-form/disciplines-form.component';
 
 import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionService } from './_services/commission.service';
@@ -34,15 +34,15 @@ import { CommissionsFormComponent } from './commissions/commissions-form/commiss
 
 import { PositionsComponent } from './positions/positions.component';
 import { PositionService } from './_services/position.service';
-import { PositionDetailComponent } from './positions/position-detail.component';
-import { PositionSearchComponent } from './positions/position-search.component';
-import { PositionFormComponent } from './positions/position-form.component';
+import { PositionsDetailComponent } from './positions/positions-detail/positions-detail.component';
+import { PositionsSearchComponent } from './positions/positions-search/positions-search.component';
+import { PositionsFormComponent } from './positions/positions-form/positions-form.component';
 
 import { SemestersComponent } from './semesters/semesters.component';
 import { SemesterService } from './_services/semester.service';
-import { SemesterDetailComponent } from './semesters/semester-detail.component';
-import { SemesterSearchComponent } from './semesters/semester-search.component';
-import { SemesterFormComponent } from './semesters/semester-form.component';
+import { SemestersDetailComponent } from './semesters/semesters-detail/semesters-detail.component';
+import { SemestersSearchComponent } from './semesters/semesters-search/semesters-search.component';
+import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
 // Imports for simulating a Web API - testing purposes only
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
@@ -61,21 +61,21 @@ import { InMemoryDataService } from './in-memory-data.service';
     DepartmentsSearchComponent,
     DepartmentsFormComponent,
     DisciplinesComponent,
-    DisciplineDetailComponent,
-    DisciplineSearchComponent,
-    DisciplineFormComponent,
+    DisciplinesDetailComponent,
+    DisciplinesSearchComponent,
+    DisciplinesFormComponent,
     CommissionsComponent,
     CommissionsDetailComponent,
     CommissionsSearchComponent,
     CommissionsFormComponent,
     PositionsComponent,
-    PositionDetailComponent,
-    PositionSearchComponent,
-    PositionFormComponent,
+    PositionsDetailComponent,
+    PositionsSearchComponent,
+    PositionsFormComponent,
     SemestersComponent,
-    SemesterDetailComponent,
-    SemesterSearchComponent,
-    SemesterFormComponent
+    SemestersDetailComponent,
+    SemestersSearchComponent,
+    SemestersFormComponent
   ],
   imports: [
     BrowserModule,

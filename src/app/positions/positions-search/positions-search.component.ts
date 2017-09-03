@@ -13,18 +13,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { Position } from './../_models/position';
-import { PositionSearchService } from './../_services/position-search.service';
+import { Position } from '../../_models/position';
+import { PositionSearchService } from '../../_services/position-search.service';
 
 
 @Component({
   selector: 'app-position-search',
-  templateUrl: './position-search.component.html',
-  styleUrls: [ './position-search.component.css' ],
+  templateUrl: './positions-search.component.html',
+  styleUrls: [ './positions-search.component.css' ],
   providers: [PositionSearchService]
 })
 
-export class PositionSearchComponent implements OnInit {
+export class PositionsSearchComponent implements OnInit {
   positions: Observable<Position[]>;
   private searchTerms = new Subject<string>();
 

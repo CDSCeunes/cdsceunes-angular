@@ -13,18 +13,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { Semester } from './../_models/semester';
-import { SemesterSearchService } from './../_services/semester-search.service';
+import { Semester } from '../../_models/semester';
+import { SemesterSearchService } from '../../_services/semester-search.service';
 
 
 @Component({
   selector: 'app-semester-search',
-  templateUrl: './semester-search.component.html',
-  styleUrls: [ './semester-search.component.css' ],
+  templateUrl: './semesters-search.component.html',
+  styleUrls: [ './semesters-search.component.css' ],
   providers: [SemesterSearchService]
 })
 
-export class SemesterSearchComponent implements OnInit {
+export class SemestersSearchComponent implements OnInit {
   semesters: Observable<Semester[]>;
   private searchTerms = new Subject<string>();
 

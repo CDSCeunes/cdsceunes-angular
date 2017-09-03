@@ -3,16 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { SemesterService } from './../_services/semester.service';
-import { Semester } from './../_models/semester';
+import { SemesterService } from '../../_services/semester.service';
+import { Semester } from '../../_models/semester';
 
 @Component({
   selector: 'app-semester-detail',
-  templateUrl: './semester-detail.component.html',
-  styleUrls: [ './semester-detail.component.css' ]
+  templateUrl: './semesters-detail.component.html',
+  styleUrls: [ './semesters-detail.component.css' ]
 })
 
-export class SemesterDetailComponent implements OnInit {
+export class SemestersDetailComponent implements OnInit {
   semester: Semester;
 
   constructor(

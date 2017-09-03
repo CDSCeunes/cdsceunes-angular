@@ -12,20 +12,20 @@ import { DepartmentsDetailComponent } from './departments/departments-detail/dep
 import { DepartmentsFormComponent } from './departments/departments-form/departments-form.component';
 
 import { DisciplinesComponent } from './disciplines/disciplines.component';
-import { DisciplineDetailComponent } from './disciplines/discipline-detail.component';
-import { DisciplineFormComponent } from './disciplines/discipline-form.component';
+import { DisciplinesDetailComponent } from './disciplines/disciplines-detail/disciplines-detail.component';
+import { DisciplinesFormComponent } from './disciplines/disciplines-form/disciplines-form.component';
 
 import { CommissionsComponent } from './commissions/commissions.component';
 import { CommissionsDetailComponent } from './commissions/commissions-detail/commissions-detail.component';
 import { CommissionsFormComponent } from './commissions/commissions-form/commissions-form.component';
 
 import { PositionsComponent } from './positions/positions.component';
-import { PositionDetailComponent } from './positions/position-detail.component';
-import { PositionFormComponent } from './positions/position-form.component';
+import { PositionsDetailComponent } from './positions/positions-detail/positions-detail.component';
+import { PositionsFormComponent } from './positions/positions-form/positions-form.component';
 
-import { SemesterDetailComponent } from './semesters/semester-detail.component';
 import { SemestersComponent } from './semesters/semesters.component';
-import { SemesterFormComponent } from './semesters/semester-form.component';
+import { SemestersDetailComponent } from './semesters/semesters-detail/semesters-detail.component';
+import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -40,20 +40,20 @@ const routes: Routes = [
     { path: 'departments/new', component: DepartmentsFormComponent},
 
     { path: 'disciplines', component: DisciplinesComponent},
-    { path: 'disciplines/detail/:id', component: DisciplineDetailComponent},
-    { path: 'disciplines/new', component: DisciplineFormComponent},
+    { path: 'disciplines/detail/:id', component: DisciplinesDetailComponent},
+    { path: 'disciplines/new', component: DisciplinesFormComponent},
 
     { path: 'commissions', component: CommissionsComponent},
     { path: 'commissions/detail/:id', component: CommissionsDetailComponent},
     { path: 'commissions/new', component: CommissionsFormComponent},
 
     { path: 'positions', component: PositionsComponent},
-    { path: 'positions/detail/:id', component: PositionDetailComponent},
-    { path: 'positions/new', component: PositionFormComponent},
+    { path: 'positions/detail/:id', component: PositionsDetailComponent},
+    { path: 'positions/new', component: PositionsFormComponent},
 
     { path: 'semesters', component: SemestersComponent},
-    { path: 'semesters/detail/:id', component: SemesterDetailComponent},
-    { path: 'semesters/new', component: SemesterFormComponent},
+    { path: 'semesters/detail/:id', component: SemestersDetailComponent},
+    { path: 'semesters/new', component: SemestersFormComponent},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

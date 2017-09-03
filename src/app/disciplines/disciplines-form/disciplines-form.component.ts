@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { DisciplineService } from './../_services/discipline.service';
-import { Discipline } from './../_models/discipline';
+import { DisciplineService } from '../../_services/discipline.service';
+import { Discipline } from '../../_models/discipline';
 
 
 @Component({
   selector: 'app-discipline-form',
-  templateUrl: './discipline-form.component.html',
-  styleUrls: [ './discipline-form.component.css' ]
+  templateUrl: './disciplines-form.component.html',
+  styleUrls: [ './disciplines-form.component.css' ]
 })
 
-export class DisciplineFormComponent {
+export class DisciplinesFormComponent {
   discipline = new Discipline();
   submitted = false;
 

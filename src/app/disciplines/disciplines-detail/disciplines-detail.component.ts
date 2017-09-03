@@ -3,16 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { DisciplineService } from './../_services/discipline.service';
-import { Discipline } from '../_models/discipline';
+import { DisciplineService } from '../../_services/discipline.service';
+import { Discipline } from '../../_models/discipline';
 
 @Component({
   selector: 'app-discipline-detail',
-  templateUrl: './discipline-detail.component.html',
-  styleUrls: [ './discipline-detail.component.css' ]
+  templateUrl: './disciplines-detail.component.html',
+  styleUrls: [ './disciplines-detail.component.css' ]
 })
 
-export class DisciplineDetailComponent implements OnInit {
+export class DisciplinesDetailComponent implements OnInit {
   discipline: Discipline;
 
   constructor(
