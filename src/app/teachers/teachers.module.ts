@@ -1,3 +1,5 @@
+import { TeachersStartComponent } from './teachers-start/teachers-start.component';
+import { AppRoutingModule } from '../app.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,13 +12,15 @@ import { TeachersSearchComponent } from './teachers-search/teachers-search.compo
 @NgModule({
   declarations: [
     TeachersComponent,
+    TeachersStartComponent,
     TeachersDetailComponent,
     TeachersFormComponent,
     TeachersSearchComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   exports: [
     TeachersComponent

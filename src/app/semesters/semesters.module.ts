@@ -1,3 +1,5 @@
+import { AppRoutingModule } from '../app.routing';
+import { SemestersHomeComponent } from './semesters-home/semesters-home.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,13 +12,15 @@ import { SemestersSearchComponent } from './semesters-search/semesters-search.co
 @NgModule({
   declarations: [
     SemestersComponent,
+    SemestersHomeComponent,
     SemestersDetailComponent,
     SemestersFormComponent,
     SemestersSearchComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   exports: [
     SemestersComponent

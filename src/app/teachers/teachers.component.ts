@@ -7,7 +7,6 @@ import { TeacherService } from './../_services/teacher.service';
 @Component({
     selector: 'app-teachers',
     templateUrl: './teachers.component.html',
-    styleUrls: ['./teachers.component.css']
 })
 
 export class TeachersComponent implements OnInit {
@@ -20,53 +19,7 @@ export class TeachersComponent implements OnInit {
         private teacherService: TeacherService
     ) {}
 
-    getTeachers(): void {
-        this.teacherService.getTeachers().then(teachers => this.teachers = teachers);
-    }
-
-    ngOnInit(): void {
-        this.getTeachers();
-    }
-
-    onSelect(teacher: Teacher): void {
-        this.selectedTeacher = teacher;
-    }
-
-    gotoDetail(): void {
-        this.router.navigate(['teachers/detail', this.selectedTeacher.id]);
-    }
-
-    gotoForm(): void {
-        this.router.navigate(['teachers/new']);
-    }
-
-    add(name: string): void {
-        name = name.trim();
-        if (!name) { return; }
-        this.teacherService.create(name)
-          .then(teacher => {
-            this.teachers.push(teacher);
-          });
-    }
-
-    addComplete(name: string, department: string, email: string, center: string): void {
-        name = name.trim();
-        department = department.trim();
-        email = email.trim();
-        center = center.trim();
-
-        this.teacherService.createComplete(name, department, email, center)
-            .then(teacher => {
-                this.teachers.push(teacher);
-            });
-    }
-
-    delete(teacher: Teacher): void {
-        this.teacherService.delete(teacher.id)
-        .then(() => {
-          this.teachers = this.teachers.filter(t => t !== teacher);
-        });
-    }
+    ngOnInit() { }
 
 }
 

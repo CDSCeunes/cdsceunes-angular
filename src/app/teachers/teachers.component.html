@@ -1,26 +1,3 @@
-<h2 class="headertekst">Todos os professores</h2>
-<div id="inner" style="float: left; width: 50%;">
-  <app-teacher-search></app-teacher-search>
-  <div>
-    <label>Nome:</label> <input #teacherName />
-    <button (click)="add(teacherName.value); teacherName.value=''">
-          Adicionar
-        </button>
-  </div>
-  <button (click)="gotoForm()">Cadastro de novo professor</button>
-  <ul class="teachers">
-    <li *ngFor="let teacher of teachers" (click)="onSelect(teacher)" [class.selected]="teacher === selectedTeacher">
-      <span class="badge">{{teacher.id}}</span>
-      <span>{{teacher.name}}</span>
-      <button class="delete" (click)="delete(teacher); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
-</div>
-<div *ngIf="selectedTeacher" style="float: left; width: 50%;">
-  <h2>
-    {{selectedTeacher.name}}
-  </h2>
-  <span class="badge" style="white-space: pre-line"><b>Departamento:</b> </span><span>{{selectedTeacher.department}}</span><br><br>
-  <span class="badge" style="white-space: pre-line"><b>E-mail:</b> </span><span>{{selectedTeacher.email}}</span><br><br>
-  <button (click)="gotoDetail()">Ver Detalhes</button>
+<div>
+  <router-outlet></router-outlet>
 </div>

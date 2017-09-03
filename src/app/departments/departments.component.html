@@ -1,25 +1,3 @@
-<h2 class="headertekst">Todas os Departamentos</h2>
-<div id="inner" style="float: left; width: 50%;">
-  <app-department-search></app-department-search>
-  <div>
-    <label>Nome:</label> <input #departmentName />
-    <button (click)="add(departmentName.value); departmentName.value=''">
-          Adicionar
-        </button>
-  </div>
-  <button (click)="gotoForm()">Cadastro de novo departamento</button>
-  <ul class="departments">
-    <li *ngFor="let department of departments" (click)="onSelect(department)" [class.selected]="department === selectedDepartment">
-      <span class="badge">{{department.id}}</span>
-      <span>{{department.name}}</span>
-      <button class="delete" (click)="delete(department); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
-</div>
-<div *ngIf="selectedDepartment" style="float: left; width: 50%;">
-  <h2>
-    {{selectedDepartment.name}}
-  </h2>
-  <span class="badge" style="white-space: pre-line"><b>Centro:</b> </span><span>{{selectedDepartment.center}}</span><br><br>
-  <button (click)="gotoDetail()">Ver Detalhes</button>
+<div>
+  <router-outlet></router-outlet>
 </div>
