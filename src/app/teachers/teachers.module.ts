@@ -21,9 +21,6 @@ import { TeachersSearchComponent } from './teachers-search/teachers-search.compo
     CommonModule,
     FormsModule,
     AppRoutingModule
-  ],
-  exports: [
-    TeachersComponent
   ]
 })
 export class TeachersModule {

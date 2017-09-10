@@ -34,7 +34,7 @@ import { SemestersDetailComponent } from './semesters/semesters-detail/semesters
 import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
 
     { path: 'teachers', component: TeachersComponent, children: [
@@ -74,11 +74,14 @@ const routes: Routes = [
     ]},
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    //{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
+    imports: [
+      RouterModule.forRoot(
+        routes,
+        { enableTracing: true }) ],
     exports: [ RouterModule ]
   })
 
