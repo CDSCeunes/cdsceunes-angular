@@ -33,56 +33,120 @@ import { SemestersHomeComponent } from './semesters/semesters-home/semesters-hom
 import { SemestersDetailComponent } from './semesters/semesters-detail/semesters-detail.component';
 import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
+// Import Containers
+import {
+    FullLayout,
+    SimpleLayout
+} from './containers';
+
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+    // Dashboard shenanigans
+    {
+        path: '',
+        component: FullLayout,
+        data: {
+            title: 'Home'
+        },
+        children: [
+            {
+                path: 'dashboard',
+                loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+            },
+            {
+                path: 'components',
+                loadChildren: './views/components/components.module#ComponentsModule'
+            },
+            {
+                path: 'icons',
+                loadChildren: './views/icons/icons.module#IconsModule'
+            },
+            {
+                path: 'widgets',
+                loadChildren: './views/widgets/widgets.module#WidgetsModule'
+            },
+            {
+                path: 'charts',
+                loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
+            }
+        ]
+    },
+    {
+        path: 'pages',
+        component: SimpleLayout,
+        data: {
+            title: 'Pages'
+        },
+        children: [
+            {
+                path: '',
+                loadChildren: './views/pages/pages.module#PagesModule',
+            }
+        ]
+    },
+
+    // The project's real paths start here
     { path: 'login', component: LoginComponent },
 
-    { path: 'teachers', component: TeachersComponent, children: [
-        { path: '', component: TeachersStartComponent },
-        { path: 'detail/:id', component: TeachersDetailComponent},
-        { path: 'new', component: TeachersFormComponent}
-    ]},
+    {
+        path: 'teachers', component: TeachersComponent, children: [
+            { path: '', component: TeachersStartComponent },
+            { path: 'detail/:id', component: TeachersDetailComponent },
+            { path: 'new', component: TeachersFormComponent }
+        ]
+    },
 
-    { path: 'departments', component: DepartmentsComponent, children: [
-        { path: '', component : DepartmentsHomeComponent},
-        { path: 'detail/:id', component : DepartmentsDetailComponent},
-        { path: 'new', component: DepartmentsFormComponent},
-    ]},
+    {
+        path: 'departments', component: DepartmentsComponent, children: [
+            { path: '', component: DepartmentsHomeComponent },
+            { path: 'detail/:id', component: DepartmentsDetailComponent },
+            { path: 'new', component: DepartmentsFormComponent },
+        ]
+    },
 
-    { path: 'disciplines', component: DisciplinesComponent, children: [
-        { path: '', component: DisciplinesHomeComponent },
-        { path: 'detail/:id', component: DisciplinesDetailComponent},
-        { path: 'new', component: DisciplinesFormComponent},
-    ]},
+    {
+        path: 'disciplines', component: DisciplinesComponent, children: [
+            { path: '', component: DisciplinesHomeComponent },
+            { path: 'detail/:id', component: DisciplinesDetailComponent },
+            { path: 'new', component: DisciplinesFormComponent },
+        ]
+    },
 
-    { path: 'commissions', component: CommissionsComponent, children: [
-        { path: '', component: CommissionsHomeComponent},
-        { path: 'detail/:id', component: CommissionsDetailComponent},
-        { path: 'new', component: CommissionsFormComponent},
-    ]},
+    {
+        path: 'commissions', component: CommissionsComponent, children: [
+            { path: '', component: CommissionsHomeComponent },
+            { path: 'detail/:id', component: CommissionsDetailComponent },
+            { path: 'new', component: CommissionsFormComponent },
+        ]
+    },
 
-    { path: 'positions', component: PositionsComponent, children: [
-        { path: '', component: PositionsHomeComponent},
-        { path: 'detail/:id', component: PositionsDetailComponent},
-        { path: 'new', component: PositionsFormComponent},
-    ]},
+    {
+        path: 'positions', component: PositionsComponent, children: [
+            { path: '', component: PositionsHomeComponent },
+            { path: 'detail/:id', component: PositionsDetailComponent },
+            { path: 'new', component: PositionsFormComponent },
+        ]
+    },
 
-    { path: 'semesters', component: SemestersComponent, children: [
-        { path: '', component: SemestersHomeComponent},
-        { path: 'detail/:id', component: SemestersDetailComponent},
-        { path: 'new', component: SemestersFormComponent},
-    ]},
+    {
+        path: 'semesters', component: SemestersComponent, children: [
+            { path: '', component: SemestersHomeComponent },
+            { path: 'detail/:id', component: SemestersDetailComponent },
+            { path: 'new', component: SemestersFormComponent },
+        ]
+    },
 
     // otherwise redirect to home
-    //{ path: '**', redirectTo: '' }
+    // { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
     imports: [
-      RouterModule.forRoot(
-        routes,
-        { enableTracing: true }) ],
-    exports: [ RouterModule ]
-  })
+        RouterModule.forRoot(
+            routes,
+            { enableTracing: true })],
+    exports: [RouterModule]
+})
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }
