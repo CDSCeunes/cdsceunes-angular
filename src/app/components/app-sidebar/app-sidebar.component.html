@@ -16,9 +16,17 @@
             </li>
         </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines']"><i class="fa fa-graduation-cap "></i> Disciplinas</a>
-      </li>
+      <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+          <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-graduation-cap"></i> Disciplinas</a>
+          <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                  <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines']"><i class="fa fa-list-alt "></i> Todas as disciplinas</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines/new']"><i class="fa fa-paperclip "></i> Nova disciplina</a>
+              </li>
+          </ul>
+        </li>
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" [routerLink]="['/semesters']"><i class="fa fa-calendar "></i> Semestres</a>
       </li>

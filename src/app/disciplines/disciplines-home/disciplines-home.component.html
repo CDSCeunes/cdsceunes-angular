@@ -1,26 +1,73 @@
-<h2 class="headertekst">Todas as Disciplinas</h2>
-<div id="inner" style="float: left; width: 50%;">
-  <app-discipline-search></app-discipline-search>
-  <div>
-    <label>Nome:</label> <input #disciplineName />
-    <button (click)="add(disciplineName.value); disciplineName.value=''">
-          Adicionar
-        </button>
+<div class="animated fadeIn mx-auto">
+  <div class="row mx-auto">
+    <div class="col-sm-6">
+      <!-- Full card -->
+      <div class="card">
+        <div class="card-header">
+          <strong>Todos as disciplinas</strong>
+        </div>
+        <div class="card-body">
+          <!-- First column -->
+          <div class="col-sm-18">
+            <!-- Search card-->
+            <div class="row">
+              <div class="col-sm-6">
+                <app-discipline-search></app-discipline-search>
+              </div>
+              <!-- Quick add sub-card-->
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header">
+                    <strong>Cadastro rápido:</strong>
+                  </div>
+                  <div class="card-body">
+                    <label>Nome:</label> <input #disicplineName />
+                    <button (click)="add(disciplineName.value); disciplineName.value=''">
+                                                  Adicionar
+                                            </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- List sub-card-->
+            <div class="row">
+              <div class="col-sm-8 mx-auto">
+                <div class="card card border-info">
+                  <div class="card-header">
+                    <strong>Lista de disciplinas</strong>
+                  </div>
+                  <div class="card-body">
+                    <ul class="disciplines">
+                      <li *ngFor="let discipline of disciplines" (click)="onSelect(discipline)" [class.selected]="discipline === selectedDiscipline">
+                        <span class="badge">{{discipline.id}}</span>
+                        <span>{{discipline.name}}</span>
+                        <button class="delete" (click)="delete(discipline); $event.stopPropagation()">x</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second column -->
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-8 mx-auto">
+          <div *ngIf="selectedDiscipline" class="card text-white bg-primary">
+            <div class="card-header">
+              <strong>{{selectedDiscipline.name}}</strong>
+            </div>
+            <div class="card-body">
+              <span class="badge" style="white-space: pre-line"><b>Curso:</b> </span><span>{{selectedDiscipline.course}}</span><br><br>
+              <span class="badge" style="white-space: pre-line"><b>Atual Professor:</b> </span><span>{{selectedDiscipline.currentdiscipline}}</span><br><br>
+              <button (click)="gotoDetail()" type="button" class="btn btn-outline-primary"><i class="fa fa-star"></i> Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <button (click)="gotoForm()">Cadastro de nova disciplina</button>
-  <ul class="disciplines">
-    <li *ngFor="let discipline of disciplines" (click)="onSelect(discipline)" [class.selected]="discipline === selectedDiscipline">
-      <span class="badge">{{discipline.id}}</span>
-      <span>{{discipline.name}}</span>
-      <button class="delete" (click)="delete(discipline); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
 </div>
-<div *ngIf="selectedDiscipline" style="float: left; width: 50%;">
-    <h2>
-      {{selectedDiscipline.name}}
-    </h2>
-    <span class="badge" style="white-space: pre-line"><b>Curso:</b> </span><span>{{selectedDiscipline.course}}</span><br><br>
-    <span class="badge" style="white-space: pre-line"><b>Atual Professor:</b> </span><span>{{selectedDiscipline.currentTeacher}}</span><br><br>
-    <button (click)="gotoDetail()">Ver Detalhes</button>
-  </div>
