@@ -5,23 +5,31 @@
       <li class="nav-title">
         Informações
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers']"><i class="fa fa-group fa-lg mt-4"></i> Professores</a>
+      <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+        <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-group"></i> Professores</a>
+        <ul class="nav-dropdown-items">
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers']"><i class="fa fa-list "></i> Listagem</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers/new']"><i class="fa fa-file-text "></i> Cadastro</a>
+            </li>
+        </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines']"><i class="fa fa-graduation-cap fa-lg mt-4"></i> Disciplinas</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines']"><i class="fa fa-graduation-cap "></i> Disciplinas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/semesters']"><i class="fa fa-calendar fa-lg mt-4"></i> Semestres</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/semesters']"><i class="fa fa-calendar "></i> Semestres</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/positions']"><i class="fa fa-gavel fa-lg mt-4"></i> Cargos Adm.</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/positions']"><i class="fa fa-gavel "></i> Cargos Adm.</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/commissions']"><i class="fa fa-handshake-o fa-lg mt-4"></i> Comissões</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/commissions']"><i class="fa fa-handshake-o "></i> Comissões</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/departments']"><i class="fa fa-institution fa-lg mt-4"></i> Departamentos</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/departments']"><i class="fa fa-institution "></i> Departamentos</a>
       </li>
 
       <li class="divider"></li>
@@ -29,10 +37,10 @@
         Distribuição de disciplinas
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/preferences']"><i class="fa fa-shopping-bag fa-lg mt-4"></i> Preferências</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/preferences']"><i class="fa fa-shopping-bag "></i> Preferências</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/distributions']"><i class="fa fa-map fa-lg mt-4"></i> Distribuição Geral</a>
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/distributions']"><i class="fa fa-map "></i> Distribuição Geral</a>
       </li>
 
       <li class="divider"></li>
