@@ -1,17 +1,23 @@
-<div class="container">
-    <div [hidden]="submitted">
-        <h1>Cadastrar novo semestre</h1>
-        <form (ngSubmit)="onSubmit()" #semesterForm="ngForm">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" required [(ngModel)]="semester.name" name="name" #name="ngModel">
-                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                    O campo de nome é necessário!
-                </div>
-            </div>
+<div class="col-sm-8 mx-auto">
+    <div class="card card-accent-primary">
+        <div class="card-header">
+            <strong>Cadastro de novo semestre</strong>
+        </div>
+        <div class="card-body">
+            <div [hidden]="submitted">
+                <form (ngSubmit)="onSubmit()" #semesterForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" required [(ngModel)]="semester.name" name="name" #name="ngModel">
+                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                            O campo de nome é necessário!
+                        </div>
+                    </div>
 
-            <button type="submit" class="btn btn-success" [disabled]="!semesterForm.form.valid">Cadastrar!</button>
-            <button (click)="goBack()">Voltar</button>
-        </form>
+                    <button type="submit" [disabled]="!semesterForm.form.valid" class="btn btn-outline-success active"><i class="fa fa-dot-circle-o"></i> Cadastrar!</button>
+                    <button (click)="goBack()" class="btn btn-outline-warning active"><i class="fa fa-ban"></i> Voltar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

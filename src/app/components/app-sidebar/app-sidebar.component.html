@@ -8,36 +8,68 @@
       <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
         <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-group"></i> Professores</a>
         <ul class="nav-dropdown-items">
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers']"><i class="fa fa-list "></i> Listagem</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers/new']"><i class="fa fa-file-text "></i> Cadastro</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers']"><i class="fa fa-list "></i> Listagem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers/new']"><i class="fa fa-file-text "></i> Cadastro</a>
+          </li>
         </ul>
       </li>
       <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
-          <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-graduation-cap"></i> Disciplinas</a>
-          <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                  <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines']"><i class="fa fa-list-alt "></i> Todas as disciplinas</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines/new']"><i class="fa fa-paperclip "></i> Nova disciplina</a>
-              </li>
-          </ul>
-        </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/semesters']"><i class="fa fa-calendar "></i> Semestres</a>
+        <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-graduation-cap"></i> Disciplinas</a>
+        <ul class="nav-dropdown-items">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines']"><i class="fa fa-list-alt "></i> Todas as disciplinas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines/new']"><i class="fa fa-paperclip "></i> Nova disciplina</a>
+          </li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/positions']"><i class="fa fa-gavel "></i> Cargos Adm.</a>
+      <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+        <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-calendar"></i> Semestres</a>
+        <ul class="nav-dropdown-items">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/semesters']"><i class="fa fa-list-alt "></i> Lista</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/semesters/new']"><i class="fa fa-paperclip "></i> Cadastro</a>
+          </li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/commissions']"><i class="fa fa-handshake-o "></i> Comissões</a>
+      <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+        <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-gavel"></i> Cargos Adm.</a>
+        <ul class="nav-dropdown-items">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/positions']"><i class="fa fa-list "></i> Listagem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/positions/new']"><i class="fa fa-file-text "></i> Cadastro</a>
+          </li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/departments']"><i class="fa fa-institution "></i> Departamentos</a>
+      <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+        <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-handshake-o"></i> Comissões</a>
+        <ul class="nav-dropdown-items">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/commissions']"><i class="fa fa-list "></i> Listagem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/commissions/new']"><i class="fa fa-file-text "></i> Cadastro</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+        <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-institution"></i> Departamentos</a>
+        <ul class="nav-dropdown-items">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/departments']"><i class="fa fa-list "></i> Listagem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/departments/new']"><i class="fa fa-file-text "></i> Cadastro</a>
+          </li>
+        </ul>
       </li>
 
       <li class="divider"></li>
