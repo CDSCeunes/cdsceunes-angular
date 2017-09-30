@@ -1,27 +1,38 @@
-<div *ngIf="commission">
-    <h2>{{commission.name}}</h2>
-    <div>
-        <label>id: </label>{{commission.id}}</div>
-    <div>
-        <label>Nome: </label>
-        <input [(ngModel)]="commission.name" placeholder="name" />
+<div class="row">
+    <div class="col-sm-6 col-md-4 mx-auto" *ngIf="commission">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+                {{commission.name}}
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">id: </label>{{commission.id}}
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Nome: </label>
+                    <input [(ngModel)]="commission.name" placeholder="name" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Mínimo de integrantes: </label>
+                    <input [(ngModel)]="commission.minNumber" type="number" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Máximo de integrantes: </label>
+                    <input [(ngModel)]="commission.maxNumber" type="number" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Integrantes: </label>
+                    <input [(ngModel)]="commission.commissions" placeholder="Integrantes" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Cargos associados: </label>
+                    <input [(ngModel)]="commission.positions" placeholder="Cargos" />
+                </div>
+            </div>
+            <div class="card-footer">
+                <button (click)="goBack()" type="reset" class="btn btn-outline-warning active"><i class="fa fa-ban"></i>Voltar</button>
+                <button (click)="save()" type="submit" class="btn btn-outline-success active"><i class="fa fa-dot-circle-o"></i>Salvar</button>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Mínimo de Integrantes: </label>
-        <input [(ngModel)]="commission.minNumber" placeholder="minNumber" />
-    </div>
-    <div>
-        <label>Máximo de Integrantes: </label>
-        <input [(ngModel)]="commission.maxNumber" placeholder="maxNumber" />
-    </div><br>
-    <div>
-        <label>Integrantes: </label>
-        <input [(ngModel)]="commission.teachers" placeholder="teachers" />
-    </div>
-    <div>
-        <label>Cargos: </label>
-        <input [(ngModel)]="commission.positions" placeholder="positions" />
-    </div>
-    <button (click)="goBack()">Voltar</button>
-    <button (click)="save()">Salvar</button>
 </div>
