@@ -1,25 +1,72 @@
-<h2 class="headertekst">Todas as Cargos Administrativos</h2>
-<div id="inner" style="float: left; width: 50%;">
-  <app-position-search></app-position-search>
-  <div>
-    <label>Nome:</label> <input #positionName />
-    <button (click)="add(positionName.value); positionName.value=''">
-          Adicionar
-        </button>
+<div class="animated fadeIn mx-auto">
+  <div class="row mx-auto">
+    <div class="col-sm-6">
+      <!-- Full card -->
+      <div class="card">
+        <div class="card-header">
+          <strong>Todos os Cargos Administrativos</strong>
+        </div>
+        <div class="card-body">
+          <!-- First column -->
+          <div class="col-sm-18">
+            <!-- Search card-->
+            <div class="row">
+              <div class="col-sm-6">
+                <app-position-search></app-position-search>
+              </div>
+              <!-- Quick add sub-card-->
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header">
+                    <strong>Cadastro rápido:</strong>
+                  </div>
+                  <div class="card-body">
+                    <label>Nome:</label> <input #positionName />
+                    <button (click)="add(positionName.value); positionName.value=''">
+                                                  Adicionar
+                                            </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- List sub-card-->
+            <div class="row">
+              <div class="col-sm-8 mx-auto">
+                <div class="card card border-info">
+                  <div class="card-header">
+                    <strong>Lista de cargos</strong>
+                  </div>
+                  <div class="card-body">
+                    <ul class="positions">
+                      <li *ngFor="let position of positions" (click)="onSelect(position)" [class.selected]="position === selectedPosition">
+                        <span class="badge">{{position.id}}</span>
+                        <span>{{position.name}}</span>
+                        <button class="delete" (click)="delete(position); $event.stopPropagation()">x</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second column -->
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-8 mx-auto">
+          <div *ngIf="selectedPosition" class="card text-white bg-primary">
+            <div class="card-header">
+              <strong>{{selectedPosition.name}}</strong>
+            </div>
+            <div class="card-body">
+              <span class="badge" style="white-space: pre-line"><b>Responsável:</b> </span><span>{{selectedPosition.inCharge}}</span><br><br>
+              <button (click)="gotoDetail()" type="button" class="btn btn-outline-primary"><i class="fa fa-star"></i> Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <button (click)="gotoForm()">Cadastro de novo cargo</button>
-  <ul class="positions">
-    <li *ngFor="let position of positions" (click)="onSelect(position)" [class.selected]="position === selectedPosition">
-      <span class="badge">{{position.id}}</span>
-      <span>{{position.name}}</span>
-      <button class="delete" (click)="delete(position); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
-</div>
-<div *ngIf="selectedPosition" style="float: left; width: 50%;">
-  <h2>
-    {{selectedPosition.name}}
-  </h2>
-  <span class="badge" style="white-space: pre-line"><b>Responsável:</b> </span><span>{{selectedPosition.inCharge}}</span><br><br>
-  <button (click)="gotoDetail()">Ver Detalhes</button>
 </div>
