@@ -1,12 +1,43 @@
 <div class="sidebar">
   <nav class="sidebar-nav">
     <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
-      </li>
       <li class="divider"></li>
       <li class="nav-title">
-        UI Elements
+        Informações
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/teachers']"><i class="fa fa-group fa-lg mt-4"></i> Professores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/disciplines']"><i class="fa fa-graduation-cap fa-lg mt-4"></i> Disciplinas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/semesters']"><i class="fa fa-calendar fa-lg mt-4"></i> Semestres</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/positions']"><i class="fa fa-gavel fa-lg mt-4"></i> Cargos Adm.</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/commissions']"><i class="fa fa-handshake-o fa-lg mt-4"></i> Comissões</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/departments']"><i class="fa fa-institution fa-lg mt-4"></i> Departamentos</a>
+      </li>
+
+      <li class="divider"></li>
+      <li class="nav-title">
+        Distribuição de disciplinas
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/preferences']"><i class="fa fa-shopping-bag fa-lg mt-4"></i> Preferências</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/distributions']"><i class="fa fa-map fa-lg mt-4"></i> Distribuição Geral</a>
+      </li>
+
+      <li class="divider"></li>
+      <li class="nav-title">
+        Coisas da template para referência
       </li>
       <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
         <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-puzzle"></i> Components</a>
@@ -53,10 +84,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" [routerLink]="['/charts']"><i class="icon-pie-chart"></i> Charts</a>
-      </li>
-      <li class="divider"></li>
-      <li class="nav-title">
-        Extras
       </li>
       <li class="nav-item nav-dropdown" appNavDropdown>
         <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-star"></i> Pages</a>
