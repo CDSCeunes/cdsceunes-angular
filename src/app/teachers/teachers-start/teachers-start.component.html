@@ -1,26 +1,73 @@
-<h2 class="headertekst">Todos os professores</h2>
-<div id="inner" style="float: left; width: 50%;">
-  <app-teacher-search></app-teacher-search>
-  <div>
-    <label>Nome:</label> <input #teacherName />
-    <button (click)="add(teacherName.value); teacherName.value=''">
-          Adicionar
-        </button>
+<div class="animated fadeIn mx-auto">
+  <div class="row mx-auto">
+    <div class="col-sm-6">
+      <!-- Full card -->
+      <div class="card">
+        <div class="card-header">
+          <strong>Todos os professores</strong>
+        </div>
+        <div class="card-body">
+          <!-- First column -->
+          <div class="col-sm-18">
+            <!-- Search card-->
+            <div class="row">
+              <div class="col-sm-6">
+                <app-teacher-search></app-teacher-search>
+              </div>
+              <!-- Quick add sub-card-->
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header">
+                    <strong>Cadastro rápido:</strong>
+                  </div>
+                  <div class="card-body">
+                    <label>Nome:</label> <input #teacherName />
+                    <button (click)="add(teacherName.value); teacherName.value=''">
+                                                Adicionar
+                                          </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- List sub-card-->
+            <div class="row">
+              <div class="col-sm-7 mx-auto">
+                <div class="card card border-info">
+                  <div class="card-header">
+                    <strong>Lista de professores</strong>
+                  </div>
+                  <div class="card-body">
+                    <ul class="teachers">
+                      <li *ngFor="let teacher of teachers" (click)="onSelect(teacher)" [class.selected]="teacher === selectedTeacher">
+                        <span class="badge">{{teacher.id}}</span>
+                        <span>{{teacher.name}}</span>
+                        <button class="delete" (click)="delete(teacher); $event.stopPropagation()">x</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second column -->
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-8 mx-auto">
+          <div *ngIf="selectedTeacher" class="card text-white bg-primary">
+            <div class="card-header">
+              <strong>{{selectedTeacher.name}}</strong>
+            </div>
+            <div class="card-body">
+              <span class="badge" style="white-space: pre-line"><b>Departamento:</b> </span><span>{{selectedTeacher.department}}</span><br><br>
+              <span class="badge" style="white-space: pre-line"><b>E-mail:</b> </span><span>{{selectedTeacher.email}}</span><br><br>
+              <button (click)="gotoDetail()" type="button" class="btn btn-outline-primary"><i class="fa fa-star"></i> Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <button (click)="gotoForm()">Cadastro de novo professor</button>
-  <ul class="teachers">
-    <li *ngFor="let teacher of teachers" (click)="onSelect(teacher)" [class.selected]="teacher === selectedTeacher">
-      <span class="badge">{{teacher.id}}</span>
-      <span>{{teacher.name}}</span>
-      <button class="delete" (click)="delete(teacher); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
-</div>
-<div *ngIf="selectedTeacher" style="float: left; width: 50%;">
-  <h2>
-    {{selectedTeacher.name}}
-  </h2>
-  <span class="badge" style="white-space: pre-line"><b>Departamento:</b> </span><span>{{selectedTeacher.department}}</span><br><br>
-  <span class="badge" style="white-space: pre-line"><b>E-mail:</b> </span><span>{{selectedTeacher.email}}</span><br><br>
-  <button (click)="gotoDetail()">Ver Detalhes</button>
 </div>

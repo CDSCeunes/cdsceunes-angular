@@ -1,10 +1,13 @@
-<div id="search-component">
-  <h4>Busca</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <div *ngFor="let teacher of teachers | async" (click)="gotoDetail(teacher)" class="search-result">
-      {{teacher.name}}
+<div id="search-component" class="card">
+    <div class="card-header">
+        <i class="fa fa-search"></i><strong>Busca</strong>
     </div>
-  </div>
+    <div class="card-body">
+        <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+        <div>
+          <div *ngFor="let teacher of teachers | async" (click)="gotoDetail(teacher)" class="search-result">
+            {{teacher.name}}
+          </div>
+        </div>
+    </div>
 </div>
-<br>

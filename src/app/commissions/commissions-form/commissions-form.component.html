@@ -1,28 +1,33 @@
-<div class="container">
-    <div [hidden]="submitted">
-        <h1>Nova Comissão</h1>
-        <form (ngSubmit)="onSubmit()" #commissionForm="ngForm">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" required [(ngModel)]="commission.name" name="name" #name="ngModel">
-                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                    O campo de nome é necessário!
-                </div>
+<div class="col-sm-8 mx-auto">
+    <div class="card card-accent-primary">
+        <div class="card-header">
+            <strong>Nova Comissão</strong>
+        </div>
+        <div class="card-body">
+            <div [hidden]="submitted">
+                <form (ngSubmit)="onSubmit()" #commissionForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" required [(ngModel)]="commission.name" name="name" #name="ngModel">
+                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                            O campo de nome é necessário!
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="minNumber">Número mínimo de integrantes</label>
+                        <input type="number" class="form-control" id="minNumber" [(ngModel)]="commission.minNumber" name="minNumber">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maxNumber">Número máximo de integrantes</label>
+                        <input type="number" class="form-control" id="maxNumber" [(ngModel)]="commission.maxNumber" name="maxNumber">
+                    </div>
+
+                    <button type="submit" [disabled]="!commissionForm.form.valid" class="btn btn-outline-success active"><i class="fa fa-dot-circle-o"></i> Cadastrar!</button>
+                    <button (click)="goBack()" class="btn btn-outline-warning active"><i class="fa fa-ban"></i> Voltar</button>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label for="minNumber">Número mínimo de integrantes</label>
-                <input type="number" class="form-control" id="minNumber" [(ngModel)]="commission.minNumber" name="minNumber">
-            </div>
-
-            <div class="form-group">
-                <label for="maxNumber">Número máximo de integrantes</label>
-                <input type="number" class="form-control" id="maxNumber" [(ngModel)]="commission.maxNumber" name="maxNumber">
-            </div>
-
-
-            <button type="submit" class="btn btn-success" [disabled]="!commissionForm.form.valid">Cadastrar</button>
-            <button (click)="goBack()">Voltar</button>
-        </form>
+        </div>
     </div>
 </div>

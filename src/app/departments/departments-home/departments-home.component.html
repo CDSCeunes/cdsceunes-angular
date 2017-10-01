@@ -1,25 +1,72 @@
-<h2 class="headertekst">Todas os Departamentos</h2>
-<div id="inner" style="float: left; width: 50%;">
-  <app-department-search></app-department-search>
-  <div>
-    <label>Nome:</label> <input #departmentName />
-    <button (click)="add(departmentName.value); departmentName.value=''">
-          Adicionar
-        </button>
+<div class="animated fadeIn mx-auto">
+  <div class="row mx-auto">
+    <div class="col-sm-6">
+      <!-- Full card -->
+      <div class="card">
+        <div class="card-header">
+          <strong>Todos os departamentos</strong>
+        </div>
+        <div class="card-body">
+          <!-- First column -->
+          <div class="col-sm-18">
+            <!-- Search card-->
+            <div class="row">
+              <div class="col-sm-6">
+                <app-department-search></app-department-search>
+              </div>
+              <!-- Quick add sub-card-->
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header">
+                    <strong>Cadastro rápido:</strong>
+                  </div>
+                  <div class="card-body">
+                    <label>Nome:</label> <input #departmentName />
+                    <button (click)="add(departmentName.value); departmentName.value=''">
+                                                  Adicionar
+                                            </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- List sub-card-->
+            <div class="row">
+              <div class="col-sm-8 mx-auto">
+                <div class="card card border-info">
+                  <div class="card-header">
+                    <strong>Lista de professores</strong>
+                  </div>
+                  <div class="card-body">
+                    <ul class="departments">
+                      <li *ngFor="let department of departments" (click)="onSelect(department)" [class.selected]="department === selectedDepartment">
+                        <span class="badge">{{department.id}}</span>
+                        <span>{{department.name}}</span>
+                        <button class="delete" (click)="delete(department); $event.stopPropagation()">x</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second column -->
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-8 mx-auto">
+          <div *ngIf="selectedDepartment" class="card text-white bg-primary">
+            <div class="card-header">
+              <strong>{{selectedDepartment.name}}</strong>
+            </div>
+            <div class="card-body">
+              <span class="badge" style="white-space: pre-line"><b>Centro:</b> </span><span>{{selectedDepartment.center}}</span><br><br>
+              <button (click)="gotoDetail()" type="button" class="btn btn-outline-primary"><i class="fa fa-star"></i> Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <button (click)="gotoForm()">Cadastro de novo departamento</button>
-  <ul class="departments">
-    <li *ngFor="let department of departments" (click)="onSelect(department)" [class.selected]="department === selectedDepartment">
-      <span class="badge">{{department.id}}</span>
-      <span>{{department.name}}</span>
-      <button class="delete" (click)="delete(department); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
-</div>
-<div *ngIf="selectedDepartment" style="float: left; width: 50%;">
-  <h2>
-    {{selectedDepartment.name}}
-  </h2>
-  <span class="badge" style="white-space: pre-line"><b>Centro:</b> </span><span>{{selectedDepartment.center}}</span><br><br>
-  <button (click)="gotoDetail()">Ver Detalhes</button>
 </div>

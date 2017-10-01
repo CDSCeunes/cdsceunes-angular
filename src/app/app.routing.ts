@@ -50,6 +50,50 @@ const routes: Routes = [
             title: 'Home'
         },
         children: [
+            { path: 'login', component: LoginComponent },
+            {
+                path: 'teachers', component: TeachersComponent, children: [
+                    { path: '', component: TeachersStartComponent },
+                    { path: 'detail/:id', component: TeachersDetailComponent },
+                    { path: 'new', component: TeachersFormComponent }
+                ]
+            },
+            {
+                path: 'departments', component: DepartmentsComponent, children: [
+                    { path: '', component: DepartmentsHomeComponent },
+                    { path: 'detail/:id', component: DepartmentsDetailComponent },
+                    { path: 'new', component: DepartmentsFormComponent },
+                ]
+            },
+            {
+                path: 'disciplines', component: DisciplinesComponent, children: [
+                    { path: '', component: DisciplinesHomeComponent },
+                    { path: 'detail/:id', component: DisciplinesDetailComponent },
+                    { path: 'new', component: DisciplinesFormComponent },
+                ]
+            },
+            {
+                path: 'commissions', component: CommissionsComponent, children: [
+                    { path: '', component: CommissionsHomeComponent },
+                    { path: 'detail/:id', component: CommissionsDetailComponent },
+                    { path: 'new', component: CommissionsFormComponent },
+                ]
+            },
+            {
+                path: 'positions', component: PositionsComponent, children: [
+                    { path: '', component: PositionsHomeComponent },
+                    { path: 'detail/:id', component: PositionsDetailComponent },
+                    { path: 'new', component: PositionsFormComponent },
+                ]
+            },
+            {
+                path: 'semesters', component: SemestersComponent, children: [
+                    { path: '', component: SemestersHomeComponent },
+                    { path: 'detail/:id', component: SemestersDetailComponent },
+                    { path: 'new', component: SemestersFormComponent },
+                ]
+            },
+
             {
                 path: 'dashboard',
                 loadChildren: './views/dashboard/dashboard.module#DashboardModule'
@@ -83,57 +127,6 @@ const routes: Routes = [
                 path: '',
                 loadChildren: './views/pages/pages.module#PagesModule',
             }
-        ]
-    },
-
-    // The project's real paths start here
-    { path: 'login', component: LoginComponent },
-
-    {
-        path: 'teachers', component: TeachersComponent, children: [
-            { path: '', component: TeachersStartComponent },
-            { path: 'detail/:id', component: TeachersDetailComponent },
-            { path: 'new', component: TeachersFormComponent }
-        ]
-    },
-
-    {
-        path: 'departments', component: DepartmentsComponent, children: [
-            { path: '', component: DepartmentsHomeComponent },
-            { path: 'detail/:id', component: DepartmentsDetailComponent },
-            { path: 'new', component: DepartmentsFormComponent },
-        ]
-    },
-
-    {
-        path: 'disciplines', component: DisciplinesComponent, children: [
-            { path: '', component: DisciplinesHomeComponent },
-            { path: 'detail/:id', component: DisciplinesDetailComponent },
-            { path: 'new', component: DisciplinesFormComponent },
-        ]
-    },
-
-    {
-        path: 'commissions', component: CommissionsComponent, children: [
-            { path: '', component: CommissionsHomeComponent },
-            { path: 'detail/:id', component: CommissionsDetailComponent },
-            { path: 'new', component: CommissionsFormComponent },
-        ]
-    },
-
-    {
-        path: 'positions', component: PositionsComponent, children: [
-            { path: '', component: PositionsHomeComponent },
-            { path: 'detail/:id', component: PositionsDetailComponent },
-            { path: 'new', component: PositionsFormComponent },
-        ]
-    },
-
-    {
-        path: 'semesters', component: SemestersComponent, children: [
-            { path: '', component: SemestersHomeComponent },
-            { path: 'detail/:id', component: SemestersDetailComponent },
-            { path: 'new', component: SemestersFormComponent },
         ]
     },
 

@@ -1,19 +1,30 @@
-<div *ngIf="position">
-    <h2>{{position.name}}</h2>
-    <div>
-        <label>id: </label>{{position.id}}</div>
-    <div>
-        <label>Nome: </label>
-        <input [(ngModel)]="position.name" placeholder="name" />
+<div class="row">
+    <div class="col-sm-6 col-md-4 mx-auto" *ngIf="position">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+                {{position.name}}
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">id: </label>{{position.id}}
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Nome: </label>
+                    <input [(ngModel)]="position.name" placeholder="Nome" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Comissão: </label>
+                    <input [(ngModel)]="position.comission" placeholder="Comissão" />
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 form-control-label">Responsável: </label>
+                    <input [(ngModel)]="position.inCharge" placeholder="Responsável" />
+                </div>
+            </div>
+            <div class="card-footer">
+                <button (click)="goBack()" type="reset" class="btn btn-outline-warning active"><i class="fa fa-ban"></i>Voltar</button>
+                <button (click)="save()" type="submit" class="btn btn-outline-success active"><i class="fa fa-dot-circle-o"></i>Salvar</button>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Comissão: </label>
-        <input [(ngModel)]="position.commission" placeholder="commission" />
-    </div>
-    <div>
-        <label>Responsável: </label>
-        <input [(ngModel)]="position.inCharge" placeholder="inCharge" />
-    </div>
-    <button (click)="goBack()">Voltar</button>
-    <button (click)="save()">Salvar</button>
 </div>
