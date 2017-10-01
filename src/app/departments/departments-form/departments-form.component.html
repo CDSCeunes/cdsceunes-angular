@@ -1,25 +1,31 @@
-<div class="container">
-    <div [hidden]="submitted">
-        <h1>Cadastro de novo departamento</h1>
-        <form (ngSubmit)="onSubmit()" #departmentForm="ngForm">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" required [(ngModel)]="department.name" name="name" #name="ngModel">
-                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                    O campo de nome é necessário!
-                </div>
-            </div>
+<div class="col-sm-8 mx-auto">
+    <div class="card card-accent-primary">
+        <div class="card-header">
+            <strong>Cadastro de novo departamento</strong>
+        </div>
+        <div class="card-body">
+            <div [hidden]="submitted">
+                <form (ngSubmit)="onSubmit()" #departmentForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" required [(ngModel)]="department.name" name="name" #name="ngModel">
+                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                            O campo de nome é necessário!
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <label for="alterEgo">Centro Localizado</label>
-                <input type="text" class="form-control" id="center" required [(ngModel)]="department.center" name="center" #center="ngModel">
-                <div [hidden]="center.valid || center.pristine" class="alert alert-danger">
-                    O campo de centro é necessário!
-                </div>
-            </div>
+                    <div class="form-group">
+                        <label for="alterEgo">Centro Localizado</label>
+                        <input type="text" class="form-control" id="center" required [(ngModel)]="department.center" name="center" #center="ngModel">
+                        <div [hidden]="center.valid || center.pristine" class="alert alert-danger">
+                            O campo de centro é necessário!
+                        </div>
+                    </div>
 
-            <button type="submit" class="btn btn-success" [disabled]="!departmentForm.form.valid">Cadastrar!</button>
-            <button (click)="goBack()">Voltar</button>
-        </form>
+                    <button type="submit" [disabled]="!departmentForm.form.valid" class="btn btn-outline-success active"><i class="fa fa-dot-circle-o"></i> Cadastrar!</button>
+                    <button (click)="goBack()" class="btn btn-outline-warning active"><i class="fa fa-ban"></i> Voltar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
