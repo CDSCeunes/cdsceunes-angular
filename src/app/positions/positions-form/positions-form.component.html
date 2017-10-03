@@ -24,7 +24,16 @@
 
                     <div class="form-group">
                         <label for="commission">Comissão pertencente</label>
-                        <input type="text" class="form-control" id="commission" [(ngModel)]="position.commission" name="commission">
+                        <input (keyup)="search(commission.value)" type="text" class="form-control" id="commission" required [(ngModel)]="position.commission"
+                            name="commission" #commission="ngModel">
+                        <div>
+                            <div [hidden]="commission.valid || commission.pristine" class="alert alert-danger">
+                                O campo de comissão é necessário!
+                            </div>
+                            <div *ngFor="let commission of commissions | async" (click)="selectCommission(commission.name)" class="search-result">
+                                {{commission.name}}
+                            </div>
+                        </div>
                     </div>
 
                     <button type="submit" [disabled]="!positionForm.form.valid" class="btn btn-outline-success active"><i class="fa fa-dot-circle-o"></i> Cadastrar!</button>
