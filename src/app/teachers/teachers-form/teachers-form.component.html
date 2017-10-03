@@ -16,10 +16,17 @@
 
                     <div class="form-group">
                         <label for="department">Departamento</label>
-                        <input type="text" class="form-control" id="department" required [(ngModel)]="teacher.department" name="department" #department="ngModel">
-                        <div [hidden]="department.valid || department.pristine" class="alert alert-danger">
-                            O campo de departamento é necessário!
+                        <input (keyup)="search(department.value)" type="text" class="form-control" id="department" required [(ngModel)]="teacher.department"
+                            name="department" #department="ngModel">
+                        <div>
+                            <div [hidden]="department.valid || department.pristine" class="alert alert-danger">
+                                O campo de departamento é necessário!
+                            </div>
+                            <div *ngFor="let department of departments | async" (click)="selectDepartment(department.name)" class="search-result">
+                                {{department.name}}
+                            </div>
                         </div>
+
                     </div>
 
                     <div class="form-group">
