@@ -1,4 +1,3 @@
-
 import { CommissionsModule } from './commissions/commissions.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -12,6 +11,7 @@ import { AppRoutingModule } from './app.routing';
 
 import { LoginComponent } from './login/login.component';
 
+// Models data services
 import { TeacherService } from './_services/teacher.service';
 import { DepartmentService } from './_services/department.service';
 import { DisciplineService } from './_services/discipline.service';
@@ -19,14 +19,17 @@ import { CommissionService } from './_services/commission.service';
 import { PositionService } from './_services/position.service';
 import { SemesterService } from './_services/semester.service';
 
-// Imports for simulating a Web API - testing purposes only
+// Import for simulating a Web API - testing purposes only
 import { InMemoryDataService } from './in-memory-data.service';
+
+// Sub-app imports
 import { DisciplinesModule } from './disciplines/disciplines.module';
 import { PositionsModule } from './positions/positions.module';
 import { SemestersModule } from './semesters/semesters.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { DepartmentsModule } from './departments/departments.module';
-
+import { UsersModule } from './users/users.module';
+import { AboutModule } from './about/about.module';
 // LAYOUT IMPORTS - LOTS OF STUFF
 
 // Import containers
@@ -95,6 +98,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     TeachersModule,
     DepartmentsModule,
     CommissionsModule,
+    UsersModule,
+    AboutModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule
