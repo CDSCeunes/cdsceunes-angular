@@ -33,6 +33,9 @@ import { SemestersHomeComponent } from './semesters/semesters-home/semesters-hom
 import { SemestersDetailComponent } from './semesters/semesters-detail/semesters-detail.component';
 import { SemestersFormComponent } from './semesters/semesters-form/semesters-form.component';
 
+import { UsersComponent } from './users/users.component';
+import { UsersConfigComponent } from './users/users-config/users-config.component';
+
 // Import Containers
 import {
     FullLayout,
@@ -91,6 +94,11 @@ const routes: Routes = [
                     { path: '', component: SemestersHomeComponent },
                     { path: 'detail/:id', component: SemestersDetailComponent },
                     { path: 'new', component: SemestersFormComponent },
+                ]
+            },
+            {
+                path: 'user', component: UsersComponent, children: [
+                    {path: 'config', component: UsersConfigComponent}
                 ]
             },
 
