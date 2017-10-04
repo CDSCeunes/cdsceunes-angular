@@ -36,6 +36,8 @@ import { SemestersFormComponent } from './semesters/semesters-form/semesters-for
 import { UsersComponent } from './users/users.component';
 import { UsersConfigComponent } from './users/users-config/users-config.component';
 
+import { AboutComponent } from './about/about.component';
+
 // Import Containers
 import {
     FullLayout,
@@ -54,6 +56,7 @@ const routes: Routes = [
         },
         children: [
             { path: 'login', component: LoginComponent },
+            { path: 'about', component: AboutComponent},
             {
                 path: 'teachers', component: TeachersComponent, children: [
                     { path: '', component: TeachersStartComponent },

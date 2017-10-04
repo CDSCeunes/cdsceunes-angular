@@ -29,7 +29,7 @@ import { SemestersModule } from './semesters/semesters.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { DepartmentsModule } from './departments/departments.module';
 import { UsersModule } from './users/users.module';
-
+import { AboutModule } from './about/about.module';
 // LAYOUT IMPORTS - LOTS OF STUFF
 
 // Import containers
@@ -99,6 +99,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     DepartmentsModule,
     CommissionsModule,
     UsersModule,
+    AboutModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule
