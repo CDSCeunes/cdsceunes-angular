@@ -11,7 +11,7 @@ import { TeacherService } from '../../_services/teacher.service';
 })
 
 export class TeachersStartComponent implements OnInit {
-    page: number = 1;
+    page = 1;
     teachers: Teacher[];
     selectedTeacher: Teacher;
     rowSelected: boolean;
