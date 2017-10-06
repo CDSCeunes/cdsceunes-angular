@@ -1,7 +1,10 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SignInComponent } from './auth/signin/index';
+
+import { AuthGuard } from './auth/auth.guards';
 
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeachersStartComponent } from './teachers/teachers-start/teachers-start.component';
@@ -45,12 +48,13 @@ import {
 } from './containers';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'about', pathMatch: 'full' },
     { path: 'login', component: SignInComponent },
 
     // Dashboard shenanigans
     {
         path: '',
+        canActivate: [ AuthGuard ],
         component: FullLayout,
         data: {
             title: 'Home'
@@ -150,7 +154,10 @@ const routes: Routes = [
         RouterModule.forRoot(
             routes,
             { enableTracing: true })],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [
+      AuthGuard
+    ]
 })
 
 export class AppRoutingModule { }

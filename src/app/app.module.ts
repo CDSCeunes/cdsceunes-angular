@@ -1,3 +1,4 @@
+import { StoreModule } from '@ngrx/store';
 import { AuthModule } from './auth/auth.module';
 import { CommissionsModule } from './commissions/commissions.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,6 +10,8 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-ap
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
+
+import { reducers } from './_store/app.reducers';
 
 // Models data services
 import { TeacherService } from './_services/teacher.service';
@@ -77,6 +80,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +94,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     HttpModule,
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
+    StoreModule.forRoot(reducers),
     DisciplinesModule,
     PositionsModule,
     SemestersModule,
