@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -91,6 +92,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    NgxPaginationModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     DisciplinesModule,
     PositionsModule,
