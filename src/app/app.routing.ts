@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login/index';
+import { SignInComponent } from './auth/signin/index';
 
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeachersStartComponent } from './teachers/teachers-start/teachers-start.component';
@@ -46,6 +46,7 @@ import {
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'login', component: SignInComponent },
 
     // Dashboard shenanigans
     {
@@ -55,7 +56,6 @@ const routes: Routes = [
             title: 'Home'
         },
         children: [
-            { path: 'login', component: LoginComponent },
             { path: 'about', component: AboutComponent},
             {
                 path: 'teachers', component: TeachersComponent, children: [

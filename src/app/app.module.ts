@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { CommissionsModule } from './commissions/commissions.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -8,8 +9,6 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-ap
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-
-import { LoginComponent } from './login/login.component';
 
 // Models data services
 import { TeacherService } from './_services/teacher.service';
@@ -81,7 +80,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES
@@ -98,6 +96,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     TeachersModule,
     DepartmentsModule,
     CommissionsModule,
+    AuthModule,
     UsersModule,
     AboutModule,
     BsDropdownModule.forRoot(),

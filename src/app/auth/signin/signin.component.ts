@@ -4,11 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'login.component.html',
-    styleUrls: ['login.component.css']
+    templateUrl: 'signin.component.html',
+    styleUrls: ['signin.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
