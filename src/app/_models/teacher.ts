@@ -1,7 +1,8 @@
+import { Department } from './department';
 export class Teacher {
-    id: number;
-    name: string;
-    department: string;
-    email: string;
-    center: string;
+    public id: number;
+    public name: string;
+    public department: Department;
+    public email: string;
+    public center: string;
 }

@@ -45,8 +45,8 @@
                     <th>Excluir</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let teacher of teachers | paginate: { itemsPerPage: 7, currentPage: page }" (click)="onSelect(teacher)" [class.selected]="teacher === selectedTeacher">
-                  <tr>
+                <tbody>
+                  <tr *ngFor="let teacher of (teachersState | async).teachers | paginate: { itemsPerPage: 7, currentPage: page }" (click)="onSelect(teacher)" [class.selected]="teacher === (teachersState | async).selectedTeacher">
                     <td class="badge badge-secondary">
                       {{teacher.id}}
                     </td>
@@ -60,10 +60,10 @@
                       <span class="badge badge-success">Ativo</span>
                     </td>
                     <td>
-                      <button (click)="gotoDetail()" [disabled]="willButtonBeShown(teacher)" class="btn btn-warning btn-sm" type="button">Editar</button>
+                      <button (click)="gotoDetail(teacher.id)" [disabled]="teacher !== (teachersState | async).selectedTeacher" class="btn btn-warning btn-sm" type="button">Editar</button>
                     </td>
                     <td>
-                      <button class="delete" [disabled]="willButtonBeShown(teacher)" (click)="delete(teacher); $event.stopPropagation()">x</button>
+                      <button class="delete" [disabled]="teacher !== (teachersState | async).selectedTeacher" (click)="delete(teacher); $event.stopPropagation()">x</button>
                     </td>
                   </tr>
                 </tbody>

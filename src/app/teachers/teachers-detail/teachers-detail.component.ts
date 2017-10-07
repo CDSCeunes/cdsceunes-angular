@@ -1,10 +1,16 @@
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
+
+import * as TeachersActions from '../store/teachers.actions';
+import * as TeachersReducer from '../store/teachers.reducers';
 import { TeacherService } from '../../_services/teacher.service';
 import { Teacher } from '../../_models/teacher';
+import { AppState } from '../../_store/app.reducers';
 
 @Component({
   selector: 'app-teacher-detail',
@@ -14,17 +20,26 @@ import { Teacher } from '../../_models/teacher';
 
 export class TeachersDetailComponent implements OnInit {
   teacher: Teacher;
+  teachersState: Observable<TeachersReducer.State>;
 
   constructor(
+    private store: Store<AppState>,
     private teacherService: TeacherService,
     private route: ActivatedRoute,
     private location: Location
   ) {}
 
   ngOnInit(): void {
+    this.teachersState = this.store.select('teachers');
     this.route.paramMap
-      .switchMap((params: ParamMap) => this.teacherService.getTeacher(+params.get('id')))
-      .subscribe(teacher => this.teacher = teacher);
+      .map((params: ParamMap) => {
+        return params.get('id');
+       }).subscribe((id: string) => {
+         this.store.dispatch(new TeachersActions.SetTeacher(+id));
+         this.teachersState.subscribe((state: TeachersReducer.State) => {
+           this.teacher = state.selectedTeacher;
+         });
+       });
   }
 
   goBack(): void {
@@ -32,7 +47,7 @@ export class TeachersDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.teacherService.update(this.teacher)
-    .then(() => this.goBack());
+    this.store.dispatch(new TeachersActions.UpdateSelectedTeacher(this.teacher));
+    this.goBack();
   }
 }

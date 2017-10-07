@@ -9,6 +9,7 @@ import { TeachersComponent } from './teachers.component';
 import { TeachersDetailComponent } from './teachers-detail/teachers-detail.component';
 import { TeachersFormComponent } from './teachers-form/teachers-form.component';
 import { TeachersSearchComponent } from './teachers-search/teachers-search.component';
+import { TeachersService } from './teachers.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { TeachersSearchComponent } from './teachers-search/teachers-search.compo
     FormsModule,
     NgxPaginationModule,
     AppRoutingModule
+  ],
+  providers: [
+    TeachersService
   ]
 })
 export class TeachersModule {

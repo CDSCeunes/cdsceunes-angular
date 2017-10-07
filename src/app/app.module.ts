@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { AuthModule } from './auth/auth.module';
 import { CommissionsModule } from './commissions/commissions.module';
@@ -8,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -15,6 +17,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
 import { reducers } from './_store/app.reducers';
+import { AppEffects } from './_store/app.effects';
 
 // Models data services
 import { TeacherService } from './_services/teacher.service';
@@ -101,6 +104,9 @@ import { AuthEffects } from './auth/store/auth.effects';
     NgxPaginationModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    }),
     DisciplinesModule,
     PositionsModule,
     SemestersModule,
@@ -113,7 +119,7 @@ import { AuthEffects } from './auth/store/auth.effects';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot(AppEffects)
   ],
   providers: [
     AppComponent,
@@ -126,6 +132,11 @@ import { AuthEffects } from './auth/store/auth.effects';
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
