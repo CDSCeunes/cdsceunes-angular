@@ -1,5 +1,9 @@
+import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import * as AuthActions from '../store/auth.actions';
+import { AppState } from './../../_store/app.reducers';
 import { AuthService } from '../auth.service';
 
 
@@ -17,14 +21,15 @@ export class SignInComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private authService: AuthService) { }
+        private store: Store<AppState>) { }
 
     ngOnInit() {
 
     }
 
     login() {
-      console.log(this.model);
-      this.authService.signin(this.model.username, this.model.password);
+
+      this.store.dispatch(new AuthActions.TrySignin({ username: this.model.username,
+                                                      password: this.model.password}));
     }
 }

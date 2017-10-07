@@ -7,6 +7,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { EffectsModule } from '@ngrx/effects';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -81,6 +82,7 @@ const APP_DIRECTIVES = [
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { AuthEffects } from './auth/store/auth.effects';
 
 
 @NgModule({
@@ -110,7 +112,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AboutModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
     AppComponent,

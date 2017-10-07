@@ -4,6 +4,7 @@ import { HttpHandler, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/take';
 
 
 import * as AppReducer from '../_store/app.reducers';
@@ -17,8 +18,9 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return this.store.select('auth')
+      .take(1)
       .switchMap((authState: AuthReducer.State) => {
-        const copiedReq = req.clone({ headers: req.headers.append('X-AUTH-TOKEN', authState.token) });
+        const copiedReq = req.clone({ headers: req.headers.append('authorization', `Bearer ${authState.token}`) });
         return next.handle(copiedReq);
       });
 

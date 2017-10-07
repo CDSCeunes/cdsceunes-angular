@@ -14,13 +14,9 @@ export class AuthService {
               private router: Router) {}
 
   signin(username: string, password: string) {
-    this.http.post('/api/v1/auth', {
+    return this.http.post('/api/v1/auth', {
       username,
       password
-    }).subscribe(( data: { token: string }) =>  {
-      this.store.dispatch(new AuthActions.SetToken(data.token));
-      this.store.dispatch(new AuthActions.SignIn());
-      this.router.navigate(['']);
     });
   }
 }
