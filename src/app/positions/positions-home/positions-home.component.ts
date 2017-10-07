@@ -11,6 +11,8 @@ import { Position } from '../../_models/position';
 })
 
 export class PositionsHomeComponent implements OnInit {
+    page = 1;
+    rowSelected: boolean;
     positions: Position[];
     selectedPosition: Position;
 
@@ -18,7 +20,7 @@ export class PositionsHomeComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private positionService: PositionService
-    ) {}
+    ) { }
 
     getPositions(): void {
         this.positionService.getPositions().then(positions => this.positions = positions);
@@ -26,10 +28,37 @@ export class PositionsHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.getPositions();
+        this.rowSelected = false;
     }
 
     onSelect(position: Position): void {
-        this.selectedPosition = position;
+        if (position != null) {
+            this.selectedPosition = position;
+            this.rowSelected = true;
+        } else {
+            this.clearSelection();
+        }
+    }
+
+    clearSelection(): void {
+        this.selectedPosition = null;
+        this.rowSelected = false;
+    }
+
+    isRowSelected() {
+        if (this.rowSelected) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    willButtonBeShown(position: Position): boolean {
+        if (this.rowSelected && position === this.selectedPosition) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     gotoDetail(): void {
@@ -44,9 +73,9 @@ export class PositionsHomeComponent implements OnInit {
         name = name.trim();
         if (!name) { return; }
         this.positionService.create(name)
-          .then(position => {
-            this.positions.push(position);
-          });
+            .then(position => {
+                this.positions.push(position);
+            });
     }
 
     addComplete(name: string, inCharge: string, commission: string): void {
@@ -62,9 +91,9 @@ export class PositionsHomeComponent implements OnInit {
 
     delete(position: Position): void {
         this.positionService.delete(position.id)
-        .then(() => {
-          this.positions = this.positions.filter(t => t !== position);
-        });
+            .then(() => {
+                this.positions = this.positions.filter(t => t !== position);
+            });
     }
 
 }

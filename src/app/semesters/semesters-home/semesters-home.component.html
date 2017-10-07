@@ -45,7 +45,7 @@
                     <th>Excluir</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let semester of semesters | paginate: { itemsPerPage: 7, currentPage: page }" (click)="onSelect(semester)" [class.selected]="semester === selectedsemester">
+                <tbody *ngFor="let semester of semesters | paginate: { itemsPerPage: 7, currentPage: page }" (click)="onSelect(semester)" [class.selected]="semester === selectedSemester">
                   <tr>
                     <td class="badge badge-secondary">
                       {{semester.id}}

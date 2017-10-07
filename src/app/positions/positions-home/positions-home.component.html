@@ -1,72 +1,81 @@
-<div class="animated fadeIn mx-auto">
-  <div class="row mx-auto">
-    <div class="col-sm-6">
-      <!-- Full card -->
-      <div class="card">
-        <div class="card-header">
-          <strong>Todos os Cargos Administrativos</strong>
-        </div>
-        <div class="card-body">
-          <!-- First column -->
-          <div class="col-sm-18">
-            <!-- Search card-->
-            <div class="row">
-              <div class="col-sm-6">
-                <app-position-search></app-position-search>
-              </div>
-              <!-- Quick add sub-card-->
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-header">
-                    <strong>Cadastro rápido:</strong>
-                  </div>
-                  <div class="card-body">
-                    <label>Nome:</label> <input #positionName />
-                    <button (click)="add(positionName.value); positionName.value=''">
-                                                  Adicionar
-                                            </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- List sub-card-->
-            <div class="row">
-              <div class="col-sm-8 mx-auto">
-                <div class="card card border-info">
-                  <div class="card-header">
-                    <strong>Lista de cargos</strong>
-                  </div>
-                  <div class="card-body">
-                    <ul class="positions">
-                      <li *ngFor="let position of positions" (click)="onSelect(position)" [class.selected]="position === selectedPosition">
-                        <span class="badge">{{position.id}}</span>
-                        <span>{{position.name}}</span>
-                        <button class="delete" (click)="delete(position); $event.stopPropagation()">x</button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="col-lg-8 mx-auto">
+  <!-- Outer card -->
+  <div class="card mx-auto">
+    <div class="card-header">
+      <strong>Todos os Cargos Administrativos</strong>
     </div>
-    <!-- Second column -->
-    <div class="col-sm-6">
+    <div class="card-body">
+      <!-- Search card-->
       <div class="row">
-        <div class="col-sm-8 mx-auto">
-          <div *ngIf="selectedPosition" class="card text-white bg-primary">
+        <div class="col-sm-6">
+          <app-position-search></app-position-search>
+        </div>
+        <!-- Quick add sub-card-->
+        <div class="col-sm-6">
+          <div class="card">
             <div class="card-header">
-              <strong>{{selectedPosition.name}}</strong>
+              <strong>Cadastro rápido:</strong>
             </div>
             <div class="card-body">
-              <span class="badge" style="white-space: pre-line"><b>Responsável:</b> </span><span>{{selectedPosition.inCharge}}</span><br><br>
-              <button (click)="gotoDetail()" type="button" class="btn btn-outline-primary"><i class="fa fa-star"></i> Ver Detalhes</button>
+              <label>Nome:</label> <input #positionName />
+              <button (click)="add(positionName.value); positionName.value=''">
+                                                Adicionar
+                                          </button>
+            </div>
+          </div>
+        </div>
+        <!-- End of quick add card -->
+      </div>
+      <!-- Table sub-card-->
+      <div class="row">
+        <div class="col-lg-9 mx-auto">
+          <div class="card card border-info">
+            <div class="card-header">
+              <i class="fa fa-align-justify"></i> Todos os cargos
+            </div>
+            <div class="card-body">
+              <table class="table table-striped table-hover table-responsive positions mx-auto">
+                <thead>
+                  <tr class="table-light">
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>Comissão</th>
+                    <th>Responsável</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let position of positions | paginate: { itemsPerPage: 7, currentPage: page }" (click)="onSelect(position)" [class.selected]="position === selectedPosition">
+                  <tr>
+                    <td class="badge badge-secondary">
+                      {{position.id}}
+                    </td>
+                    <td>
+                      {{position.name}}
+                    </td>
+                    <td>
+                      {{position.commission}}
+                    </td>
+                    <td>
+                      {{position.inCharge}}
+                    </td>
+                    <td>
+                      <button (click)="gotoDetail()" [disabled]="willButtonBeShown(position)" class="btn btn-warning btn-sm" type="button">Editar</button>
+                    </td>
+                    <td>
+                      <button class="delete" [disabled]="willButtonBeShown(position)" (click)="delete(position); $event.stopPropagation()">x</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="page = $event"></pagination-controls>
             </div>
           </div>
         </div>
       </div>
+      <!-- End of table -->
     </div>
   </div>
+  <!-- End of left card-->
 </div>
+<!-- End of left column -->
