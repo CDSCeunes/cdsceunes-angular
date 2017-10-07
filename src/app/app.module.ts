@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { AuthModule } from './auth/auth.module';
 import { CommissionsModule } from './commissions/commissions.module';
@@ -92,6 +93,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     StoreModule.forRoot(reducers),
