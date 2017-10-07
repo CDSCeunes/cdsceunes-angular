@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from '../app.routing';
 import { DepartmentsComponent } from './departments.component';
@@ -20,6 +21,7 @@ import { DepartmentsDetailComponent } from './departments-detail/departments-det
   imports: [
     CommonModule,
     FormsModule,
+    NgxPaginationModule,
     AppRoutingModule
   ],
   exports: [
