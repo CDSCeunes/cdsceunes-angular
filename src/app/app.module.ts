@@ -1,3 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { AuthModule } from './auth/auth.module';
 import { CommissionsModule } from './commissions/commissions.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -10,7 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
-import { LoginComponent } from './login/login.component';
+import { reducers } from './_store/app.reducers';
 
 // Models data services
 import { TeacherService } from './_services/teacher.service';
@@ -79,10 +82,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES
@@ -91,15 +94,18 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     NgxPaginationModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
+    StoreModule.forRoot(reducers),
     DisciplinesModule,
     PositionsModule,
     SemestersModule,
     TeachersModule,
     DepartmentsModule,
     CommissionsModule,
+    AuthModule,
     UsersModule,
     AboutModule,
     BsDropdownModule.forRoot(),
