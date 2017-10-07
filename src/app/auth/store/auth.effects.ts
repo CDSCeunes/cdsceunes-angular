@@ -21,7 +21,7 @@ export class AuthEffects {
       .switchMap((payload: {username: string, password: string}) => {
         return this.authService.signin(payload.username, payload.password);
       })
-      .mergeMap((token: string) => {
+      .mergeMap((data: {token: string}) => {
         this.router.navigate(['/']);
         return [
           {
@@ -29,7 +29,7 @@ export class AuthEffects {
           },
           {
             type: AuthActions.SET_TOKEN,
-            payload: token
+            payload: data.token
           }
         ];
       });

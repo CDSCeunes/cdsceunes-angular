@@ -16,6 +16,9 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private store: Store<AppReducer.AppState>) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (req.url === '/api/v1/auth') {
+      return next.handle(req);
+    }
 
     return this.store.select('auth')
       .take(1)
