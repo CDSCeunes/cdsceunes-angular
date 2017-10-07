@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import { Component, OnInit } from '@angular/core';
+
+import * as AppReducer from './../../_store/app.reducers';
+import * as AuthReducer from '../../auth/store/auth.reducers';
 
 @Component({
   selector: 'app-header',
   templateUrl: './app-header.component.html'
 })
-export class AppHeader {
+export class AppHeader implements OnInit {
 
   // public disabled = false;
   // public status: {isopen: boolean} = {isopen: false};
@@ -19,5 +24,11 @@ export class AppHeader {
   //   this.status.isopen = !this.status.isopen;
   // }
 
-  ngOnInit(): void {}
+  authState: Observable<AuthReducer.State>;
+
+  constructor(private store: Store<AppReducer.AppState>) { }
+
+  ngOnInit() {
+    this.authState = this.store.select('auth');
+  }
 }
