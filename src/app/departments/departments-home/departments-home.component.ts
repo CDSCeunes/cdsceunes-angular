@@ -11,6 +11,8 @@ import { DepartmentService } from '../../_services/department.service';
 })
 
 export class DepartmentsHomeComponent implements OnInit {
+    page = 1;
+    rowSelected: boolean;
     departments: Department[];
     selectedDepartment: Department;
 
@@ -18,7 +20,7 @@ export class DepartmentsHomeComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private departmentService: DepartmentService
-    ) {}
+    ) { }
 
     getDepartments(): void {
         this.departmentService.getDepartments().then(departments => this.departments = departments);
@@ -26,10 +28,37 @@ export class DepartmentsHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.getDepartments();
+        this.rowSelected = false;
     }
 
     onSelect(department: Department): void {
-        this.selectedDepartment = department;
+        if (department != null) {
+            this.selectedDepartment = department;
+            this.rowSelected = true;
+        } else {
+            this.clearSelection();
+        }
+    }
+
+    clearSelection(): void {
+        this.selectedDepartment = null;
+        this.rowSelected = false;
+    }
+
+    isRowSelected() {
+        if (this.rowSelected) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    willButtonBeShown(department: Department): boolean {
+        if (this.rowSelected && department === this.selectedDepartment) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     gotoDetail(): void {
@@ -44,9 +73,9 @@ export class DepartmentsHomeComponent implements OnInit {
         name = name.trim();
         if (!name) { return; }
         this.departmentService.create(name)
-          .then(department => {
-            this.departments.push(department);
-          });
+            .then(department => {
+                this.departments.push(department);
+            });
     }
 
     addComplete(name: string, center: string): void {
@@ -61,9 +90,9 @@ export class DepartmentsHomeComponent implements OnInit {
 
     delete(department: Department): void {
         this.departmentService.delete(department.id)
-        .then(() => {
-          this.departments = this.departments.filter(t => t !== department);
-        });
+            .then(() => {
+                this.departments = this.departments.filter(t => t !== department);
+            });
     }
 
 }

@@ -3,6 +3,7 @@ import { AppRoutingModule } from '../app.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { TeachersComponent } from './teachers.component';
 import { TeachersDetailComponent } from './teachers-detail/teachers-detail.component';
@@ -20,6 +21,7 @@ import { TeachersSearchComponent } from './teachers-search/teachers-search.compo
   imports: [
     CommonModule,
     FormsModule,
+    NgxPaginationModule,
     AppRoutingModule
   ]
 })

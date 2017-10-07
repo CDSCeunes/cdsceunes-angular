@@ -3,24 +3,24 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const teachers = [
-      { id: 10,  name: 'Leonardo Silveste' },
-      { id: 11, name: 'Aníbal Cotrina' },
-      { id: 12, name: 'Daniel Coura' },
-      { id: 13, name: 'Sílvia Rissino' },
-      { id: 14, name: 'Henrique Cristovão' },
-      { id: 15, name: 'Luciana Lee' },
-      { id: 16, name: 'Helcio Mello' },
-      { id: 17, name: 'Leandro Costalonga' },
-      { id: 18, name: 'Sandra Regina Rocha' },
-      { id: 19, name: 'Maria das Graças da Silva' },
-      { id: 20, name: 'Willian Hisatagu' },
-      { id: 21, name: 'Flavio Duarte' },
-      { id: 22, name: 'Francisco de Assis' },
-      { id: 23, name: 'Helder Rocha' },
-      { id: 24, name: 'Flavio Duarte' },
-      { id: 25, name: 'Luís Otávio Rigo' },
-      { id: 26, name: 'Roney Pignaton' },
-      { id: 27, name: 'Wanderley Cardoso' }
+      { id: 10,  name: 'Leonardo Silveste', email: 'leonardo.silvestre@ufes.br' },
+      { id: 11, name: 'Aníbal Cotrina', email: 'anibal.cotrina@ufes.br' },
+      { id: 12, name: 'Daniel Coura', email: 'daniel.coura@ufes.br'},
+      { id: 13, name: 'Sílvia Rissino', email: 'silvia.rissino@ufes.br' },
+      { id: 14, name: 'Henrique Cristovão', email: 'henrique.cristovao@ufes.br' },
+      { id: 15, name: 'Luciana Lee', email: 'luciana.lee@ufes.br' },
+      { id: 16, name: 'Helcio Mello', email: 'helcio.mello@ufes.br' },
+      { id: 17, name: 'Leandro Costalonga', email: 'landro.costalonga@ufes.br' },
+      { id: 18, name: 'Sandra Regina Rocha', email: 'sandra.rocha@ufes.br' },
+      { id: 19, name: 'Maria das Graças da Silva', email: 'maria.silva@ufes.br' },
+      { id: 20, name: 'Willian Hisatagu', email: 'willian.hisatagu@ufes.br' },
+      { id: 21, name: 'Flavio Duarte', email: 'flavio.duarte@ufes.br' },
+      { id: 22, name: 'Francisco de Assis', email: 'francisco.assis@ufes.br' },
+      { id: 23, name: 'Helder Rocha', email: 'helder.rocha@ufes.br' },
+      { id: 24, name: 'Flavio Duarte', email: 'flavio.duarte@ufes.br' },
+      { id: 25, name: 'Luís Otávio Rigo', email: 'luis.rigo@ufes.br' },
+      { id: 26, name: 'Roney Pignaton', email: 'roney.pignaton@ufes.br' },
+      { id: 27, name: 'Wanderley Cardoso', email: 'wanderley.cardoso@ufes.br' }
     ];
 
     const departments = [

@@ -2,6 +2,7 @@ import { AppRoutingModule } from '../app.routing';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { PositionsComponent } from './positions.component';
 import { PositionsHomeComponent } from './positions-home/positions-home.component';
@@ -20,6 +21,7 @@ import { PositionsSearchComponent } from './positions-search/positions-search.co
   imports: [
     CommonModule,
     FormsModule,
+    NgxPaginationModule,
     AppRoutingModule
   ],
   exports: [

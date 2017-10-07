@@ -1,72 +1,123 @@
-<div class="animated fadeIn mx-auto">
-  <div class="row mx-auto">
-    <div class="col-sm-6">
-      <!-- Full card -->
-      <div class="card">
-        <div class="card-header">
-          <strong>Todos os semestres</strong>
-        </div>
-        <div class="card-body">
-          <!-- First column -->
-          <div class="col-sm-18">
-            <!-- Search card-->
-            <div class="row">
-              <div class="col-sm-6">
-                <app-semester-search></app-semester-search>
-              </div>
-              <!-- Quick add sub-card-->
-              <div class="col-sm-6">
-                <div class="card">
-                  <div class="card-header">
-                    <strong>Cadastro rápido:</strong>
-                  </div>
-                  <div class="card-body">
-                    <label>Nome:</label> <input #semesterName />
-                    <button (click)="add(semesterName.value); semesterName.value=''">
-                                                  Adicionar
-                                            </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- List sub-card-->
-            <div class="row">
-              <div class="col-sm-7 mx-auto">
-                <div class="card card border-info">
-                  <div class="card-header">
-                    <strong>Lista de semestres</strong>
-                  </div>
-                  <div class="card-body">
-                    <ul class="semesters">
-                      <li *ngFor="let semester of semesters" (click)="onSelect(semester)" [class.selected]="semester === selectedSemester">
-                        <span class="badge">{{semester.id}}</span>
-                        <span>{{semester.name}}</span>
-                        <button class="delete" (click)="delete(semester); $event.stopPropagation()">x</button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="col-lg-8 mx-auto">
+  <!-- Outer card -->
+  <div class="card mx-auto">
+    <div class="card-header">
+      <strong>Lista de Semestres</strong>
     </div>
-    <!-- Second column -->
-    <div class="col-sm-6">
+    <div class="card-body">
+      <!-- Search card-->
       <div class="row">
-        <div class="col-sm-8 mx-auto">
-          <div *ngIf="selectedSemester" class="card text-white bg-primary">
+        <div class="col-sm-6">
+          <app-semester-search></app-semester-search>
+        </div>
+        <!-- Quick add sub-card-->
+        <div class="col-sm-6">
+          <div class="card">
             <div class="card-header">
-              <strong>{{selectedSemester.name}}</strong>
+              <strong>Cadastro rápido:</strong>
             </div>
             <div class="card-body">
-              <span class="badge" style="white-space: pre-line"><b>Semestre:</b> </span><span>{{selectedSemester.name}}</span><br><br>
-              <button (click)="gotoDetail()" type="button" class="btn btn-outline-primary"><i class="fa fa-star"></i> Ver Detalhes</button>
+              <label>Nome:</label> <input #semesterName />
+              <button (click)="add(semesterName.value); semesterName.value=''">
+                                                Adicionar
+                                          </button>
+            </div>
+          </div>
+        </div>
+        <!-- End of quick add card -->
+      </div>
+      <!-- Table sub-card-->
+      <div class="row">
+        <div class="col-lg-9 mx-auto">
+          <div class="card card border-info">
+            <div class="card-header">
+              <i class="fa fa-align-justify"></i> Todos os semestres
+            </div>
+            <div class="card-body">
+              <table class="table table-striped table-hover table-responsive semesters mx-auto">
+                <thead>
+                  <tr class="table-light">
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>Oferta</th>
+                    <th>Cenário</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let semester of semesters | paginate: { itemsPerPage: 7, currentPage: page }" (click)="onSelect(semester)" [class.selected]="semester === selectedSemester">
+                  <tr>
+                    <td class="badge badge-secondary">
+                      {{semester.id}}
+                    </td>
+                    <td>
+                      {{semester.name}}
+                    </td>
+                    <td>
+                      <button [disabled]="willButtonBeShown(semester)" type="button" class="btn btn-success" data-toggle="modal" (click)="offerModal.show()">
+                        Grade de Oferta
+                      </button>
+                    </td>
+                    <td>
+                      <button [disabled]="willButtonBeShown(semester)" type="button" class="btn btn-info" data-toggle="modal" (click)="scenarioModal.show()">
+                        Distribuição
+                      </button>
+                    </td>
+                    <td>
+                      <button (click)="gotoDetail()" [disabled]="willButtonBeShown(semester)" class="btn btn-warning btn-sm" type="button">Editar</button>
+                    </td>
+                    <td>
+                      <button class="delete" [disabled]="willButtonBeShown(semester)" (click)="delete(semester); $event.stopPropagation()">x</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="page = $event"></pagination-controls>
             </div>
           </div>
         </div>
       </div>
+      <!-- End of table -->
     </div>
   </div>
+  <!-- End of left card-->
 </div>
+
+<!-- Modals-->
+<div bsModal #offerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-success" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Grade de oferta</h4>
+        <button type="button" class="close" (click)="offerModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="offerModal.hide()">Fechar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div bsModal #scenarioModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Cenário de distribuição</h4>
+        <button type="button" class="close" (click)="scenarioModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="scenarioModal.hide()">Fechar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -11,8 +11,10 @@ import { DisciplineService } from '../../_services/discipline.service';
 })
 
 export class DisciplinesHomeComponent implements OnInit {
+    page = 1;
     disciplines: Discipline[];
     selectedDiscipline: Discipline;
+    rowSelected: boolean;
 
     constructor(
         private route: ActivatedRoute,
@@ -26,10 +28,37 @@ export class DisciplinesHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.getDisciplines();
+        this.rowSelected = false;
     }
 
     onSelect(discipline: Discipline): void {
-        this.selectedDiscipline = discipline;
+        if (discipline != null) {
+            this.selectedDiscipline = discipline;
+            this.rowSelected = true;
+        } else {
+            this.clearSelection();
+        }
+    }
+
+    clearSelection(): void {
+        this.selectedDiscipline = null;
+        this.rowSelected = false;
+    }
+
+    isRowSelected() {
+        if (this.rowSelected) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    willButtonBeShown(discipline: Discipline): boolean {
+        if (this.rowSelected && discipline === this.selectedDiscipline) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     gotoDetail(): void {

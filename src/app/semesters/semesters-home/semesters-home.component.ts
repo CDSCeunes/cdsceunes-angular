@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 
 import { Semester } from '../../_models/semester';
 import { SemesterService } from '../../_services/semester.service';
@@ -11,8 +12,13 @@ import { SemesterService } from '../../_services/semester.service';
 })
 
 export class SemestersHomeComponent implements OnInit {
+    page = 1;
+    rowSelected: boolean;
     semesters: Semester[];
     selectedSemester: Semester;
+
+    public offerModal;
+    public scenarioModal;
 
     constructor(
         private route: ActivatedRoute,
@@ -26,10 +32,37 @@ export class SemestersHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.getSemesters();
+        this.rowSelected = false;
     }
 
     onSelect(semester: Semester): void {
-        this.selectedSemester = semester;
+        if (semester != null) {
+            this.selectedSemester = semester;
+            this.rowSelected = true;
+        } else {
+            this.clearSelection();
+        }
+    }
+
+    clearSelection(): void {
+        this.selectedSemester = null;
+        this.rowSelected = false;
+    }
+
+    isRowSelected() {
+        if (this.rowSelected) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    willButtonBeShown(semester: Semester): boolean {
+        if (this.rowSelected && semester === this.selectedSemester) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     gotoDetail(): void {
