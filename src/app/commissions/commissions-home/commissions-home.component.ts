@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 
 import { CommissionService } from '../../_services/commission.service';
 import { Commission } from '../../_models/commission';
@@ -11,8 +12,13 @@ import { Commission } from '../../_models/commission';
 })
 
 export class CommissionsHomeComponent implements OnInit {
+    page = 1;
+    rowSelected: boolean;
     commissions: Commission[];
     selectedCommission: Commission;
+
+    public membersModal;
+    public positionsModal;
 
     constructor(
         private route: ActivatedRoute,
@@ -26,10 +32,37 @@ export class CommissionsHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.getCommissions();
+        this.rowSelected = false;
     }
 
     onSelect(commission: Commission): void {
-        this.selectedCommission = commission;
+        if (commission != null) {
+            this.selectedCommission = commission;
+            this.rowSelected = true;
+        } else {
+            this.clearSelection();
+        }
+    }
+
+    clearSelection(): void {
+        this.selectedCommission = null;
+        this.rowSelected = false;
+    }
+
+    isRowSelected() {
+        if (this.rowSelected) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    willButtonBeShown(commission: Commission): boolean {
+        if (this.rowSelected && commission === this.selectedCommission) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     gotoDetail(): void {
