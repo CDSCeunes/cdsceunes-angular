@@ -3,6 +3,8 @@ import { SemestersHomeComponent } from './semesters-home/semesters-home.componen
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { SemestersComponent } from './semesters.component';
 import { SemestersDetailComponent } from './semesters-detail/semesters-detail.component';
@@ -20,6 +22,8 @@ import { SemestersSearchComponent } from './semesters-search/semesters-search.co
   imports: [
     CommonModule,
     FormsModule,
+    NgxPaginationModule,
+    ModalModule.forRoot(),
     AppRoutingModule
   ],
   exports: [
