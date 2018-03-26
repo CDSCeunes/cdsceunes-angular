@@ -42,8 +42,11 @@ export class TeachersFormComponent {
 
   onSubmit() {
     this.submitted = true;
+    //const department = new Department();
+    //department.name = this.teacher.department;
     this.teacherService.createComplete(
-      this.teacher.name, this.teacher.department, this.teacher.email, this.teacher.center)
+      
+      this.teacher.name, null, this.teacher.email, this.teacher.center)
       .then(() => this.goBack());
   }
 
@@ -60,7 +63,7 @@ export class TeachersFormComponent {
   }
 
   selectDepartment(content: string): void {
-    this.teacher.department = content;
+    this.teacher.department.name = content;
     this.searchTerms.next('');
   }
 
